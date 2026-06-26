@@ -1,37 +1,44 @@
 /* --- Variables CSS Dinámicas --- */
 :root {
-    /* Modo Oscuro (Predeterminado - Azul Metálico Premium) */
-    --bg-main: #030712; 
-    --bg-surface: #0f172a; 
-    --text-main: #f8fafc; 
-    --text-muted: #94a3b8; 
-    --primary: #2563eb; 
+    /* Opción 2: Azul premium corporativo */
+    --bg-main: #f4f7fb;
+    --bg-surface: #ffffff;
+    --text-main: #111827;
+    --text-muted: #64748b;
+
+    --primary: #1e40af;
     --primary-hover: #1d4ed8;
-    --primary-glow: rgba(37, 99, 235, 0.5);
-    --border-color: rgba(148, 163, 184, 0.15);
-    
-    --title-gradient: linear-gradient(135deg, #ffffff 0%, #cbd5e1 40%, #64748b 100%);
-    --card-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    
+    --primary-glow: rgba(30, 64, 175, 0.24);
+
+    --border-color: #dbe3ee;
+
+    --title-gradient: linear-gradient(135deg, #111827 0%, #1e3a8a 48%, #1e40af 100%);
+    --card-shadow: 0 18px 42px rgba(17, 24, 39, 0.07);
+
+    --express-bg: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+    --premium-bg: linear-gradient(180deg, #dbeafe 0%, #ffffff 100%);
+    --pro-bg: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
+}
+
+/* Variables Modo Oscuro Opcional (compatible con tu botón actual) */
+body.light-mode {
+    --bg-main: #030712;
+    --bg-surface: #0f172a;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --primary-glow: rgba(59, 130, 246, 0.42);
+
+    --border-color: rgba(148, 163, 184, 0.16);
+
+    --title-gradient: linear-gradient(135deg, #ffffff 0%, #dbeafe 45%, #60a5fa 100%);
+    --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+
     --express-bg: linear-gradient(180deg, #1e293b 0%, var(--bg-surface) 100%);
     --premium-bg: linear-gradient(180deg, #1e3a8a 0%, var(--bg-surface) 100%);
     --pro-bg: linear-gradient(180deg, #0f172a 0%, #030712 100%);
-}
-
-/* Variables Modo Claro (Se activan con el botón del sol) */
-body.light-mode {
-    --bg-main: #f8fafc; 
-    --bg-surface: #ffffff; 
-    --text-main: #0f172a; 
-    --text-muted: #475569; 
-    --border-color: rgba(15, 23, 42, 0.1);
-    
-    --title-gradient: linear-gradient(135deg, #0f172a 0%, #334155 40%, #64748b 100%);
-    --card-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
-    
-    --express-bg: linear-gradient(180deg, #f1f5f9 0%, var(--bg-surface) 100%);
-    --premium-bg: linear-gradient(180deg, #eff6ff 0%, var(--bg-surface) 100%);
-    --pro-bg: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
 }
 
 /* --- Reset y Base Prevención Desbordamiento --- */
@@ -144,7 +151,7 @@ nav {
 }
 
 body.light-mode .logo-img {
-    filter: brightness(0);
+    filter: none;
 }
 
 /* --- Enlaces de Navegación --- */
@@ -1889,89 +1896,196 @@ section {
     }
 }
 
+
 /* ==========================================================
-   CORRECCIÓN FINAL - TARJETAS DE PRECIOS EN MODO CLARO
-   Evita que planes como Web/Catálogo Simple se vean oscuros
-   cuando la página está en light-mode.
+   PALETA CLARA POR DEFECTO - AJUSTES FINALES INGENIX HUB
+   Mantiene tu HTML/JS actual: el botón agrega body.light-mode,
+   que aquí funciona como modo oscuro opcional.
    ========================================================== */
 
-body.light-mode .pricing-card {
-    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-    border-color: rgba(15, 23, 42, 0.10);
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+.logo-img,
+body.light-mode .logo-img {
+    filter: none !important;
 }
 
-body.light-mode .pricing-card.landing {
-    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+header {
+    background: rgba(248, 250, 252, 0.92);
 }
 
-body.light-mode .pricing-card.catalog {
-    background: linear-gradient(180deg, #f3f7ff 0%, #ffffff 100%);
-    border-color: rgba(56, 189, 248, 0.26);
+body.light-mode header {
+    background: rgba(3, 7, 18, 0.92);
 }
 
-body.light-mode .pricing-card.catalog-pro {
-    background: linear-gradient(180deg, #eef4ff 0%, #ffffff 100%);
-    border-color: rgba(37, 99, 235, 0.35);
-    box-shadow: 0 22px 50px rgba(37, 99, 235, 0.12);
+body:not(.light-mode) .hero-bg-anim {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.14) 0%, transparent 42%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg-main) 100%);
 }
 
-body.light-mode .pricing-card.panel {
-    background: linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
-    border-color: rgba(168, 85, 247, 0.23);
-}
-
-body.light-mode .pricing-card.ecommerce-plan {
-    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-}
-
-body.light-mode .pricing-card h3,
-body.light-mode .pricing-card .price,
-body.light-mode .pricing-card strong {
-    color: #0f172a;
-}
-
-body.light-mode .pricing-card .target,
-body.light-mode .pricing-card ul li,
-body.light-mode .pricing-card .plan-time,
-body.light-mode .pricing-card .price-prefix,
-body.light-mode .pricing-card .price span {
-    color: #475569;
-}
-
-body.light-mode .pricing-card ul li i {
-    color: #64748b;
-}
-
-body.light-mode .pricing-card ul li i.highlight,
-body.light-mode .pricing-card .plan-time i {
-    color: var(--primary);
-}
-
-body.light-mode .pricing-card .divider {
-    background: rgba(15, 23, 42, 0.10);
-}
-
-body.light-mode .pricing-card .plan-time {
-    background: rgba(255, 255, 255, 0.65);
-    border-color: rgba(15, 23, 42, 0.10);
-}
-
-body.light-mode .pricing-card .btn-block:not(.btn-block-active) {
-    color: #0f172a;
-    border-color: rgba(15, 23, 42, 0.14);
-    background: rgba(255, 255, 255, 0.35);
-}
-
-body.light-mode .pricing-card .btn-block:not(.btn-block-active):hover {
-    border-color: var(--primary);
-    color: var(--primary);
+body:not(.light-mode) .btn-secondary:hover,
+body:not(.light-mode) .btn-block:hover {
     background: rgba(37, 99, 235, 0.06);
 }
 
-/* Mantiene visible el badge sin oscurecer la tarjeta */
-body.light-mode .popular-badge {
+body:not(.light-mode) .icon-wrapper,
+body:not(.light-mode) .contact-item,
+body:not(.light-mode) .social-links a,
+body:not(.light-mode) .tech-tags span {
+    background: #f8fafc;
+}
+
+body:not(.light-mode) .pricing-card,
+body:not(.light-mode) .portfolio-card,
+body:not(.light-mode) .testimonial-card,
+body:not(.light-mode) .faq-item,
+body:not(.light-mode) .labs-card,
+body:not(.light-mode) .contact-info-box,
+body:not(.light-mode) .tech-stack-box,
+body:not(.light-mode) .unique-features-box {
+    background: var(--bg-surface);
+    border-color: var(--border-color);
+    box-shadow: var(--card-shadow);
+}
+
+body:not(.light-mode) .pricing-card.landing,
+body:not(.light-mode) .pricing-card.express {
+    background: var(--express-bg);
+}
+
+body:not(.light-mode) .pricing-card.catalog,
+body:not(.light-mode) .pricing-card.premium {
+    background: linear-gradient(180deg, #f3f7ff 0%, #ffffff 100%);
+    border-color: rgba(56, 189, 248, 0.24);
+}
+
+body:not(.light-mode) .pricing-card.catalog-pro {
+    background: var(--premium-bg);
+    border-color: rgba(37, 99, 235, 0.34);
+    box-shadow: 0 22px 50px rgba(37, 99, 235, 0.12);
+}
+
+body:not(.light-mode) .pricing-card.panel {
+    background: linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
+    border-color: rgba(168, 85, 247, 0.24);
+}
+
+body:not(.light-mode) .pricing-card.ecommerce-plan,
+body:not(.light-mode) .pricing-card.pro {
+    background: var(--pro-bg);
+}
+
+body:not(.light-mode) .pricing-card h3,
+body:not(.light-mode) .pricing-card .price,
+body:not(.light-mode) .pricing-card strong,
+body:not(.light-mode) .premium h3,
+body:not(.light-mode) .premium .price {
+    color: var(--text-main);
+}
+
+body:not(.light-mode) .pricing-card .target,
+body:not(.light-mode) .pricing-card ul li,
+body:not(.light-mode) .pricing-card .plan-time,
+body:not(.light-mode) .pricing-card .price-prefix,
+body:not(.light-mode) .pricing-card .price span,
+body:not(.light-mode) .premium .target,
+body:not(.light-mode) .premium ul li,
+body:not(.light-mode) .premium .price span {
+    color: var(--text-muted);
+}
+
+body:not(.light-mode) .pricing-card ul li i {
+    color: #64748b;
+}
+
+body:not(.light-mode) .pricing-card ul li i.highlight,
+body:not(.light-mode) .pricing-card .plan-time i {
+    color: var(--primary);
+}
+
+body:not(.light-mode) .pricing-card .divider {
+    background: rgba(15, 23, 42, 0.10);
+}
+
+body:not(.light-mode) .plan-time {
+    background: rgba(255, 255, 255, 0.75);
+    border-color: rgba(15, 23, 42, 0.10);
+}
+
+body:not(.light-mode) .pricing-note {
+    background: rgba(37, 99, 235, 0.06);
+    border-color: rgba(37, 99, 235, 0.14);
+}
+
+body:not(.light-mode) .btn-block:not(.btn-block-active) {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.45);
+    border-color: rgba(15, 23, 42, 0.13);
+}
+
+body:not(.light-mode) .btn-block:not(.btn-block-active):hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: rgba(37, 99, 235, 0.06);
+}
+
+body:not(.light-mode) .popular-badge {
     background: var(--primary);
     color: #ffffff;
+}
+
+body:not(.light-mode) footer {
+    background: #0f172a;
+    color: #cbd5e1;
+    border-top-color: rgba(148, 163, 184, 0.18);
+}
+
+body.light-mode .pricing-card.catalog {
+    background: linear-gradient(180deg, #172554 0%, var(--bg-surface) 100%);
+}
+
+body.light-mode .pricing-card.catalog-pro,
+body.light-mode .pricing-card.premium {
+    background: var(--premium-bg);
+}
+
+body.light-mode .pricing-card.panel {
+    background: linear-gradient(180deg, #111827 0%, var(--bg-surface) 100%);
+}
+
+body.light-mode .plan-time {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+
+/* --- Detalles visuales opción 2 --- */
+body:not(.light-mode) .top-banner {
+    background: linear-gradient(90deg, #1e40af, #172554);
+}
+
+body:not(.light-mode) .hero-tag,
+body:not(.light-mode) .labs-status {
+    background: rgba(30, 64, 175, 0.08);
+    border-color: rgba(30, 64, 175, 0.22);
+}
+
+body:not(.light-mode) .pricing-card.catalog,
+body:not(.light-mode) .pricing-card.premium {
+    background: linear-gradient(180deg, #eef5ff 0%, #ffffff 100%);
+    border-color: rgba(30, 64, 175, 0.18);
+}
+
+body:not(.light-mode) .pricing-card.catalog-pro {
+    background: linear-gradient(180deg, #dbeafe 0%, #ffffff 100%);
+    border-color: rgba(30, 64, 175, 0.30);
+    box-shadow: 0 22px 52px rgba(30, 64, 175, 0.13);
+}
+
+body:not(.light-mode) .catalog .card-glow,
+body:not(.light-mode) .premium .card-glow {
+    background: #2563eb;
+}
+
+body:not(.light-mode) .panel .card-glow {
+    background: #6366f1;
 }
 
