@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Web y Apps | Ingenix Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .portfolio-page-header {
+            padding: 120px 20px 45px 20px;
+            text-align: center;
+        }
+
+        .portfolio-page-header p {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 600px) {
+            .portfolio-page-header {
+                padding: 90px 16px 28px 16px;
+            }
+
+            .portfolio-page-header h2 {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo-link">
+                <div class="logo-wrapper">
+                    <img src="logo_no_bg.png" alt="Ingenix Hub Logo" class="logo-img">
+                </div>
+            </a>
+            <ul class="nav-links portfolio-nav">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#contact" class="nav-contact-btn">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="portfolio-page-header">
+        <span class="hero-tag">Nuestro Trabajo</span>
+        <h2>Galería de páginas web y apps web</h2>
+        <p>Explora algunos proyectos reales que hemos desarrollado: sitios web, plataformas, catálogos digitales, sistemas privados y experiencias de venta o contacto en línea.</p>
+    </div>
+
+    <section id="portfolio-full" style="padding-top: 0;">
+        <div class="container">
+            <div class="portfolio-grid">
+
+                <!-- Proyecto 1: TextiBajío -->
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-image project-shot">
+                        <img src="textibajio.png" alt="Repositorio para tiendas locales del bajio">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="project-tag">Directorio & Plataforma Web</span>
+                        <h3>TextiBajío</h3>
+                        <p>Plataforma web desarrollada para digitalizar negocios textiles de Moroleón y Uriangato, facilitando visibilidad, catálogo y contacto directo.</p>
+                        <a href="https://textibajio.com" target="_blank" class="portfolio-link">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2: Gama Studio MX -->
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="portfolio-image project-shot">
+                        <img src="gama-studio.png" alt="Pagina Para estudio de fotografia">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="project-tag">Sitio Web Corporativo</span>
+                        <h3>Gama Studio MX</h3>
+                        <p>Sitio web profesional para mostrar servicios, presencia de marca y captar clientes de forma clara y moderna.</p>
+                        <a href="https://gamastudiomx.com" target="_blank" class="portfolio-link">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3: Cuellos Textiles Goar -->
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-image project-shot">
+                        <img src="cuellos-textiles-goar.png" alt="Pagina Empresarial de un taller">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="project-tag">Catálogo / Página Web</span>
+                        <h3>Cuellos Textiles Goar</h3>
+                        <p>Página web enfocada en mostrar productos textiles, mejorar la presentación del negocio y facilitar el contacto comercial.</p>
+                        <a href="https://cuellos-textiles-goar.vercel.app" target="_blank" class="portfolio-link">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4: Demo de Ventas Online -->
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="portfolio-content">
+                        <div class="portfolio-image project-shot">
+                        <img src="demo-tienda-online.png" alt="Dashboard de app web privada para Damaris">
+                        </div>
+                        <span class="project-tag">Demo Comercial</span>
+                        <h3>Demo de Ventas Online</h3>
+                        <p>Proyecto demostrativo para mostrar cómo puede verse un sitio con catálogo, experiencia de compra y contacto comercial.</p>
+                        <a href="https://ejemplo-tienda-digital.vercel.app" target="_blank" class="portfolio-link">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 5: App de Damaris -->
+                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-image project-shot">
+                        <img src="damaris-dashboard.png" alt="Dashboard de app web privada">
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="project-tag">App Web Privada</span>
+                        <h3>Sistema de Control de ventas</h3>
+                        <p>Aplicación web privada para control de ventas, gastos, ganancia neta e inventario. Por privacidad, se muestra únicamente una vista previa del sistema.</p>
+                        <span class="portfolio-link disabled-link">Proyecto privado · vista previa con capturas</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Ingenix Hub. Páginas Web, Apps Web y Software en el Bajío.</p>
+    </footer>
+
+</body>
+
+</html>
