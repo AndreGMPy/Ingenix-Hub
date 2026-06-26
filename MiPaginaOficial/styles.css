@@ -739,9 +739,21 @@ body.light-mode .logo-img {
     background: var(--express-bg); 
 }
 
-.premium { 
-    background: var(--premium-bg); 
-    border-color: rgba(37, 99, 235, 0.3); 
+.premium {
+    background: linear-gradient(180deg, #f4f8ff 0%, #ffffff 100%);
+    border-color: rgba(37, 99, 235, 0.25);
+}
+
+.premium .target,
+.premium ul li,
+.premium .old-price,
+.premium .price span {
+    color: #475569;
+}
+
+.premium h3,
+.premium .price {
+    color: #0f172a;
 }
 
 .pro { 
@@ -1876,3 +1888,90 @@ section {
         border-radius: 14px;
     }
 }
+
+/* ==========================================================
+   CORRECCIÓN FINAL - TARJETAS DE PRECIOS EN MODO CLARO
+   Evita que planes como Web/Catálogo Simple se vean oscuros
+   cuando la página está en light-mode.
+   ========================================================== */
+
+body.light-mode .pricing-card {
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    border-color: rgba(15, 23, 42, 0.10);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+body.light-mode .pricing-card.landing {
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+body.light-mode .pricing-card.catalog {
+    background: linear-gradient(180deg, #f3f7ff 0%, #ffffff 100%);
+    border-color: rgba(56, 189, 248, 0.26);
+}
+
+body.light-mode .pricing-card.catalog-pro {
+    background: linear-gradient(180deg, #eef4ff 0%, #ffffff 100%);
+    border-color: rgba(37, 99, 235, 0.35);
+    box-shadow: 0 22px 50px rgba(37, 99, 235, 0.12);
+}
+
+body.light-mode .pricing-card.panel {
+    background: linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
+    border-color: rgba(168, 85, 247, 0.23);
+}
+
+body.light-mode .pricing-card.ecommerce-plan {
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+body.light-mode .pricing-card h3,
+body.light-mode .pricing-card .price,
+body.light-mode .pricing-card strong {
+    color: #0f172a;
+}
+
+body.light-mode .pricing-card .target,
+body.light-mode .pricing-card ul li,
+body.light-mode .pricing-card .plan-time,
+body.light-mode .pricing-card .price-prefix,
+body.light-mode .pricing-card .price span {
+    color: #475569;
+}
+
+body.light-mode .pricing-card ul li i {
+    color: #64748b;
+}
+
+body.light-mode .pricing-card ul li i.highlight,
+body.light-mode .pricing-card .plan-time i {
+    color: var(--primary);
+}
+
+body.light-mode .pricing-card .divider {
+    background: rgba(15, 23, 42, 0.10);
+}
+
+body.light-mode .pricing-card .plan-time {
+    background: rgba(255, 255, 255, 0.65);
+    border-color: rgba(15, 23, 42, 0.10);
+}
+
+body.light-mode .pricing-card .btn-block:not(.btn-block-active) {
+    color: #0f172a;
+    border-color: rgba(15, 23, 42, 0.14);
+    background: rgba(255, 255, 255, 0.35);
+}
+
+body.light-mode .pricing-card .btn-block:not(.btn-block-active):hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(37, 99, 235, 0.06);
+}
+
+/* Mantiene visible el badge sin oscurecer la tarjeta */
+body.light-mode .popular-badge {
+    background: var(--primary);
+    color: #ffffff;
+}
+
