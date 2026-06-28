@@ -1,473 +1,394 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingenix Hub | Páginas Web, Apps Web y Plataformas Digitales</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animations CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ingenix Hub | Páginas Web, Apps Web y Plataformas Digitales</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;family=Sora:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- AOS Animations CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
 </head>
 <body>
-
-    <!-- Barra de Promoción Superior -->
-    <div class="top-banner">
-        🚀 <strong>Promo Especial:</strong> Dominio .com y Hosting GRATIS en tu primer año al contratar tu página web o app web.
+<!-- Barra de Promoción Superior -->
+<div class="top-banner">
+        🚀 <strong>Diagnóstico gratis:</strong> cuéntanos tu idea y te recomendamos el tipo de web, catálogo o app que necesita tu negocio.
     </div>
+<!-- Navegación Glassmorphism -->
+<header>
+<nav>
+<a class="logo-link" href="#hero">
+<!-- Logo libre para no cortarse -->
+<div class="logo-wrapper">
+<img alt="Ingenix Hub Logo" class="logo-img" src="logo_no_bg.png"/>
+</div>
+</a>
+<!-- NUEVO: Botón de Menú Hamburguesa para celulares -->
+<button aria-expanded="false" aria-label="Abrir menú" class="menu-btn" id="menu-btn" type="button">
+<i class="fas fa-bars"></i>
+</button>
+<ul class="nav-links" id="nav-links">
+<li><a class="nav-item" href="#hero">Inicio</a></li>
+<li><a class="nav-item" href="#about">Nosotros</a></li>
+<li><a class="nav-item" href="#portfolio">Portafolio</a></li>
+<li><a class="nav-item" href="#pricing">Precios</a></li>
+<!-- Botón Modo Oscuro/Claro -->
+<li><button class="theme-btn" id="theme-toggle" title="Cambiar tema"><i class="fas fa-moon"></i></button></li>
+<li><a class="nav-contact-btn nav-item" href="#contact">Contacto</a></li>
+</ul>
+</nav>
+</header>
+<!-- Hero Section -->
+<section id="hero">
+<div class="hero-bg-anim"></div>
+<div class="hero-content" data-aos="zoom-in" data-aos-duration="1200">
+<span class="hero-tag">Páginas Web · Catálogos Digitales · Apps Web a la Medida</span>
+<h1>Creamos páginas web y apps web para negocios que quieren crecer</h1>
+<p>En Ingenix Hub diseñamos sitios web, catálogos digitales y plataformas a la medida para que tu negocio se vea profesional, consiga más clientes y pueda automatizar procesos.</p>
+<div class="hero-buttons">
+<a class="btn-primary glow-effect" href="#pricing">Ver paquetes</a>
+<a class="btn-secondary" href="#portfolio">Ver proyectos</a>
+</div>
+</div>
+<div class="scroll-indicator">
+<i class="fas fa-chevron-down floating"></i>
+</div>
+</section>
+<!-- Cinta Animada -->
+<div class="tech-marquee-wrapper">
+<div class="tech-marquee">
+<div class="tech-marquee-content">
+<span><i class="fas fa-laptop-code"></i> Páginas Web Profesionales</span>
+<span><i class="fas fa-layer-group"></i> Catálogos Digitales</span>
+<span><i class="fas fa-rocket"></i> Apps Web a la Medida</span>
+<span><i class="fas fa-server"></i> Desarrollo Backend</span>
+<span><i class="fas fa-search"></i> Posicionamiento SEO</span>
+<span><i class="fas fa-mobile-alt"></i> Diseño Responsivo</span>
+</div>
+<div class="tech-marquee-content">
+<span><i class="fas fa-laptop-code"></i> Páginas Web Profesionales</span>
+<span><i class="fas fa-layer-group"></i> Catálogos Digitales</span>
+<span><i class="fas fa-rocket"></i> Apps Web a la Medida</span>
+<span><i class="fas fa-server"></i> Desarrollo Backend</span>
+<span><i class="fas fa-search"></i> Posicionamiento SEO</span>
+<span><i class="fas fa-mobile-alt"></i> Diseño Responsivo</span>
+</div>
+</div>
+</div>
+<!-- Quiénes Somos -->
+<section id="about">
+<div class="container about-container">
+<div class="about-text" data-aos="fade-right">
+<h2>Ingenix Hub: webs y apps para vender más</h2>
+<p class="highlight-text">Creamos páginas web, catálogos digitales y apps web que trabajan por tu negocio las 24 horas.</p>
+<p><strong>Ingenix Hub</strong> es nuestra marca enfocada en desarrollar soluciones web para negocios, marcas personales y proyectos: páginas profesionales, catálogos digitales, sistemas internos y apps web personalizadas.</p>
+<p>A diferencia de las páginas genéricas, desarrollamos tu proyecto con estructura profesional para que cargue rápido, se vea perfecto en celular y pueda crecer contigo cuando necesites nuevas funciones.</p>
+</div>
+<div class="about-visual" data-aos="fade-left">
+<div class="tech-stack-box">
+<div class="tech-item"><i class="fas fa-globe"></i> Páginas Web</div>
+<div class="tech-item"><i class="fas fa-bullseye"></i> Sitios Corporativos</div>
+<div class="tech-item"><i class="fas fa-code"></i> Apps Web</div>
+<div class="tech-item"><i class="fas fa-book-open"></i> Catálogos Digitales</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Beneficios -->
+<section id="features">
+<div class="container unique-features-box" data-aos="fade-up">
+<h2>¿Por qué crear tu web o app con nosotros?</h2>
+<div class="features-grid">
+<div class="feature-item" data-aos="zoom-in" data-aos-delay="100">
+<div class="icon-wrapper"><i class="fas fa-paint-brush"></i></div>
+<h3>Webs y Apps Únicas</h3>
+<p>No usamos plantillas repetidas. Tu página o app tendrá los colores, estilo y personalidad exacta de tu marca.</p>
+</div>
+<div class="feature-item" data-aos="zoom-in" data-aos-delay="200">
+<div class="icon-wrapper"><i class="fas fa-mobile-alt"></i></div>
+<h3>Perfecta en Celulares</h3>
+<p>Tus clientes te verán desde el celular. Tu página, catálogo o app web se adaptará a cualquier pantalla automáticamente.</p>
+</div>
+<div class="feature-item" data-aos="zoom-in" data-aos-delay="300">
+<div class="icon-wrapper"><i class="fab fa-whatsapp"></i></div>
+<h3>Contacto Directo</h3>
+<p>Integramos botones de WhatsApp y formularios para que tus clientes te contacten a un solo clic de distancia.</p>
+</div>
+<div class="feature-item" data-aos="zoom-in" data-aos-delay="400">
+<div class="icon-wrapper"><i class="fas fa-search"></i></div>
+<h3>Amigable con Google (SEO)</h3>
+<p>Configuramos tu sitio para que sea más fácil de encontrar cuando alguien busque tus servicios en internet.</p>
+</div>
+<div class="feature-item" data-aos="zoom-in" data-aos-delay="500">
+<div class="icon-wrapper"><i class="fas fa-edit"></i></div>
+<h3>Fácil de Administrar</h3>
+<p>Podrás cambiar textos, fotos, servicios o productos fácilmente sin saber programar.</p>
+</div>
+<div class="feature-item" data-aos="zoom-in" data-aos-delay="600">
+<div class="icon-wrapper"><i class="fas fa-tachometer-alt"></i></div>
+<h3>Carga Ultrarrápida</h3>
+<p>Nadie espera por una página lenta. Optimizamos tu sitio o app web para cargar rápido y no perder clientes.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Casos de Éxito / Portafolio 3D -->
+<section class="portfolio-3d-section" id="portfolio">
+<div class="container">
+<div class="portfolio-heading" data-aos="fade-up">
+<span class="hero-tag">Portafolio real</span>
+<h2>Proyectos Destacados</h2>
+<p>Explora algunos sitios web, catálogos digitales y apps privadas que hemos desarrollado para negocios y proyectos reales.</p>
+</div>
+<div class="portfolio-3d-wrapper" data-aos="zoom-in" data-aos-delay="120">
+<button aria-label="Proyecto anterior" class="carousel-control prev" id="portfolio-prev" type="button">
+<i class="fas fa-chevron-left"></i>
+</button>
+<div aria-live="polite" class="portfolio-3d-scene" id="portfolio-3d-scene">
+<!-- Proyecto 1 -->
+<article class="portfolio-3d-card active" data-index="0">
+<div class="project-card-inner" data-tilt-inner="">
+<div class="project-media browser-mockup">
+<div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">textibajio.com</span></div>
+<img alt="Vista previa de TextiBajío" onerror="this.closest('.project-media').classList.add('image-missing')" src="textibajio.png"/>
+<div class="project-fallback"><i class="fas fa-laptop-code"></i></div>
+</div>
+<div class="project-info">
+<span class="project-tag">Directorio &amp; Plataforma Web</span>
+<h3>TextiBajío</h3>
+<p>Plataforma web para digitalizar negocios textiles de Moroleón y Uriangato con perfiles, catálogo y contacto directo.</p><div class="project-tech-row"><span>Next.js</span><span>React</span><span>Tailwind CSS</span><span>Vercel</span></div>
+<a class="portfolio-link" href="https://textibajio.com" target="_blank">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
+</div>
+</div>
+</article>
+<!-- Proyecto 2 -->
+<article class="portfolio-3d-card next" data-index="1">
+<div class="project-card-inner" data-tilt-inner="">
+<div class="project-media browser-mockup">
+<div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">gamastudiomx.com</span></div>
+<img alt="Vista previa de Gama Studio MX" onerror="this.closest('.project-media').classList.add('image-missing')" src="gama-studio.png"/>
+<div class="project-fallback"><i class="fas fa-camera-retro"></i></div>
+</div>
+<div class="project-info">
+<span class="project-tag">Sitio Web Corporativo</span>
+<h3>Gama Studio MX</h3>
+<p>Sitio web profesional para presentar servicios, fortalecer presencia de marca y captar clientes de forma clara.</p><div class="project-tech-row"><span>Next.js</span><span>Tailwind CSS</span><span>Galería</span><span>Vercel</span></div>
+<a class="portfolio-link" href="https://gamastudiomx.com" target="_blank">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
+</div>
+</div>
+</article>
+<!-- Proyecto 3 -->
+<article class="portfolio-3d-card far-next" data-index="2">
+<div class="project-card-inner" data-tilt-inner="">
+<div class="project-media browser-mockup">
+<div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">cuellos-textiles-goar.vercel.app</span></div>
+<img alt="Vista previa de Cuellos Textiles Goar" onerror="this.closest('.project-media').classList.add('image-missing')" src="cuellos-textiles-goar.png"/>
+<div class="project-fallback"><i class="fas fa-industry"></i></div>
+</div>
+<div class="project-info">
+<span class="project-tag">Catálogo / Página Web</span>
+<h3>Cuellos Textiles Goar</h3>
+<p>Página enfocada en mostrar productos textiles, mejorar la presentación del negocio y facilitar el contacto comercial.</p><div class="project-tech-row"><span>Next.js</span><span>Catálogo</span><span>WhatsApp</span><span>Vercel</span></div>
+<a class="portfolio-link" href="https://cuellos-textiles-goar.vercel.app" target="_blank">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
+</div>
+</div>
+</article>
+<!-- Proyecto 4 -->
+<article class="portfolio-3d-card hidden-card" data-index="3">
+<div class="project-card-inner" data-tilt-inner="">
+<div class="project-media browser-mockup">
+<div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">ejemplo-tienda-digital.vercel.app</span></div>
+<img alt="Vista previa de Demo de Ventas Online" onerror="this.closest('.project-media').classList.add('image-missing')" src="demo-tienda-online.png"/>
+<div class="project-fallback"><i class="fas fa-cart-shopping"></i></div>
+</div>
+<div class="project-info">
+<span class="project-tag">Demo Comercial</span>
+<h3>Demo de Ventas Online</h3>
+<p>Proyecto demostrativo para mostrar catálogo, experiencia de compra y contacto comercial en una web moderna.</p><div class="project-tech-row"><span>React</span><span>Catálogo</span><span>Carrito</span><span>Vercel</span></div>
+<a class="portfolio-link" href="https://ejemplo-tienda-digital.vercel.app" target="_blank">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
+</div>
+</div>
+</article>
+<!-- Proyecto 5 -->
+<article class="portfolio-3d-card prev" data-index="4">
+<div class="project-card-inner" data-tilt-inner="">
+<div class="project-media browser-mockup">
+<div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">app privada / dashboard</span></div>
+<img alt="Vista previa de app web privada" onerror="this.closest('.project-media').classList.add('image-missing')" src="damaris-dashboard.png"/>
+<div class="project-fallback"><i class="fas fa-chart-line"></i></div>
+</div>
+<div class="project-info">
+<span class="project-tag">App Web Privada</span>
+<h3>Sistema de Control de Ventas</h3>
+<p>Aplicación privada para control de ventas, gastos, ganancia neta e inventario. Se muestra solo una vista previa.</p><div class="project-tech-row"><span>React</span><span>Supabase</span><span>Auth</span><span>Dashboard</span></div>
+<span class="portfolio-link disabled-link">Proyecto privado · vista previa</span>
+</div>
+</div>
+</article>
+</div>
+<button aria-label="Proyecto siguiente" class="carousel-control next-btn" id="portfolio-next" type="button">
+<i class="fas fa-chevron-right"></i>
+</button>
+</div>
+<div aria-label="Indicadores del carrusel" class="carousel-dots" id="portfolio-dots">
+<button aria-label="Ver TextiBajío" class="dot active" type="button"></button>
+<button aria-label="Ver Gama Studio MX" class="dot" type="button"></button>
+<button aria-label="Ver Cuellos Textiles Goar" class="dot" type="button"></button>
+<button aria-label="Ver Demo de Ventas Online" class="dot" type="button"></button>
+<button aria-label="Ver Sistema de Control de Ventas" class="dot" type="button"></button>
+</div>
+<div aria-hidden="true" class="carousel-progress"><span id="portfolio-progress"></span></div>
+<div class="portfolio-more" data-aos="fade-up" data-aos-delay="260">
+<a class="btn-view-more" href="portafolio.html">Ver más proyectos <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</section>
+<!-- Cómo trabajamos (Proceso animado) -->
+<section class="timeline-section" id="process">
+<div class="container">
+<div class="section-heading" data-aos="fade-up">
+<span class="hero-tag">Proceso claro</span>
+<h2>De la idea al lanzamiento</h2>
+<p>Un flujo simple para que sepas qué pasa en cada etapa del proyecto.</p>
+</div>
+<div class="timeline-track" data-aos="fade-up" data-aos-delay="100">
+<div class="timeline-line"></div>
+<div class="timeline-step"><span>01</span><h3>Diagnóstico</h3><p>Entendemos tu negocio, objetivo, presupuesto y lo que quieres lograr.</p></div>
+<div class="timeline-step"><span>02</span><h3>Propuesta</h3><p>Te recomendamos el tipo de página, catálogo, panel o app que realmente necesitas.</p></div>
+<div class="timeline-step"><span>03</span><h3>Diseño y desarrollo</h3><p>Construimos tu proyecto con diseño responsive, revisiones y estructura profesional.</p></div>
+<div class="timeline-step"><span>04</span><h3>Entrega y guía</h3><p>Publicamos el proyecto, revisamos contigo y te explicamos cómo usarlo.</p></div>
+</div>
+</div>
+</section>
 
-    <!-- Navegación Glassmorphism -->
-    <header>
-        <nav>
-            <a href="#hero" class="logo-link">
-                <!-- Logo libre para no cortarse -->
-                <div class="logo-wrapper">
-                    <img src="logo_no_bg.png" alt="Ingenix Hub Logo" class="logo-img">
-                </div>
-            </a>
-            
-            <!-- NUEVO: Botón de Menú Hamburguesa para celulares -->
-            <button class="menu-btn" id="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#hero" class="nav-item">Inicio</a></li>
-                <li><a href="#about" class="nav-item">Nosotros</a></li>
-                <li><a href="#portfolio" class="nav-item">Portafolio</a></li>
-                <li><a href="#pricing" class="nav-item">Precios</a></li>
-                <!-- Botón Modo Oscuro/Claro -->
-                <li><button id="theme-toggle" class="theme-btn" title="Cambiar tema"><i class="fas fa-sun"></i></button></li>
-                <li><a href="#contact" class="nav-contact-btn nav-item">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="hero-bg-anim"></div>
-        <div class="hero-content" data-aos="zoom-in" data-aos-duration="1200">
-            <span class="hero-tag">Páginas Web · Catálogos Digitales · Apps Web a la Medida</span>
-            <h1>Creamos páginas web y apps web para negocios que quieren crecer</h1>
-            <p>En Ingenix Hub diseñamos sitios web, catálogos digitales y plataformas a la medida para que tu negocio se vea profesional, consiga más clientes y pueda automatizar procesos.</p>
-            <div class="hero-buttons">
-                <a href="#pricing" class="btn-primary glow-effect">Ver paquetes</a>
-                <a href="#portfolio" class="btn-secondary">Ver proyectos</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down floating"></i>
-        </div>
-    </section>
-
-    <!-- Cinta Animada -->
-    <div class="tech-marquee-wrapper">
-        <div class="tech-marquee">
-            <div class="tech-marquee-content">
-                <span><i class="fas fa-laptop-code"></i> Páginas Web Profesionales</span>
-                <span><i class="fas fa-layer-group"></i> Catálogos Digitales</span>
-                <span><i class="fas fa-rocket"></i> Apps Web a la Medida</span>
-                <span><i class="fas fa-server"></i> Desarrollo Backend</span>
-                <span><i class="fas fa-search"></i> Posicionamiento SEO</span>
-                <span><i class="fas fa-mobile-alt"></i> Diseño Responsivo</span>
-            </div>
-            <div class="tech-marquee-content">
-                <span><i class="fas fa-laptop-code"></i> Páginas Web Profesionales</span>
-                <span><i class="fas fa-layer-group"></i> Catálogos Digitales</span>
-                <span><i class="fas fa-rocket"></i> Apps Web a la Medida</span>
-                <span><i class="fas fa-server"></i> Desarrollo Backend</span>
-                <span><i class="fas fa-search"></i> Posicionamiento SEO</span>
-                <span><i class="fas fa-mobile-alt"></i> Diseño Responsivo</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Quiénes Somos -->
-    <section id="about">
-        <div class="container about-container">
-            <div class="about-text" data-aos="fade-right">
-                <h2>Ingenix Hub: webs y apps para vender más</h2>
-                <p class="highlight-text">Creamos páginas web, catálogos digitales y apps web que trabajan por tu negocio las 24 horas.</p>
-                <p><strong>Ingenix Hub</strong> es nuestra marca enfocada en desarrollar soluciones web para negocios, marcas personales y proyectos: páginas profesionales, catálogos digitales, sistemas internos y apps web personalizadas.</p>
-                <p>A diferencia de las páginas genéricas, desarrollamos tu proyecto con estructura profesional para que cargue rápido, se vea perfecto en celular y pueda crecer contigo cuando necesites nuevas funciones.</p>
-            </div>
-            <div class="about-visual" data-aos="fade-left">
-                <div class="tech-stack-box">
-                    <div class="tech-item"><i class="fas fa-globe"></i> Páginas Web</div>
-                    <div class="tech-item"><i class="fas fa-bullseye"></i> Sitios Corporativos</div>
-                    <div class="tech-item"><i class="fas fa-code"></i> Apps Web</div>
-                    <div class="tech-item"><i class="fas fa-book-open"></i> Catálogos Digitales</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Beneficios -->
-    <section id="features">
-        <div class="container unique-features-box" data-aos="fade-up">
-            <h2>¿Por qué crear tu web o app con nosotros?</h2>
-            <div class="features-grid">
-                <div class="feature-item" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="icon-wrapper"><i class="fas fa-paint-brush"></i></div>
-                    <h3>Webs y Apps Únicas</h3>
-                    <p>No usamos plantillas repetidas. Tu página o app tendrá los colores, estilo y personalidad exacta de tu marca.</p>
-                </div>
-                <div class="feature-item" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="icon-wrapper"><i class="fas fa-mobile-alt"></i></div>
-                    <h3>Perfecta en Celulares</h3>
-                    <p>Tus clientes te verán desde el celular. Tu página, catálogo o app web se adaptará a cualquier pantalla automáticamente.</p>
-                </div>
-                <div class="feature-item" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="icon-wrapper"><i class="fab fa-whatsapp"></i></div>
-                    <h3>Contacto Directo</h3>
-                    <p>Integramos botones de WhatsApp y formularios para que tus clientes te contacten a un solo clic de distancia.</p>
-                </div>
-                <div class="feature-item" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="icon-wrapper"><i class="fas fa-search"></i></div>
-                    <h3>Amigable con Google (SEO)</h3>
-                    <p>Configuramos tu sitio para que sea más fácil de encontrar cuando alguien busque tus servicios en internet.</p>
-                </div>
-                <div class="feature-item" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="icon-wrapper"><i class="fas fa-edit"></i></div>
-                    <h3>Fácil de Administrar</h3>
-                    <p>Podrás cambiar textos, fotos, servicios o productos fácilmente sin saber programar.</p>
-                </div>
-                <div class="feature-item" data-aos="zoom-in" data-aos-delay="600">
-                    <div class="icon-wrapper"><i class="fas fa-tachometer-alt"></i></div>
-                    <h3>Carga Ultrarrápida</h3>
-                    <p>Nadie espera por una página lenta. Optimizamos tu sitio o app web para cargar rápido y no perder clientes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Casos de Éxito / Portafolio Compacto -->
-    <section id="portfolio">
-        <div class="container">
-            <h2 data-aos="fade-up">Proyectos Destacados</h2>
-            <div class="portfolio-grid">
-                
-                <!-- Proyecto 1: TextiBajío -->
-                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="portfolio-image project-shot">
-                        <img src="textibajio.png" alt="Repositorio para tiendas locales del bajio">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="project-tag">Directorio & Plataforma Web</span>
-                        <h3>TextiBajío</h3>
-                        <p>Plataforma web desarrollada para digitalizar negocios textiles de Moroleón y Uriangato, facilitando visibilidad, catálogo y contacto directo.</p>
-                        <a href="https://textibajio.com" target="_blank" class="portfolio-link">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <!-- Proyecto 2: Gama Studio MX -->
-                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="150">
-                    <div class="portfolio-image project-shot">
-                        <img src="gama-studio.png" alt="Pagina Para estudio de fotografia">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="project-tag">Sitio Web Corporativo</span>
-                        <h3>Gama Studio MX</h3>
-                        <p>Sitio web profesional para mostrar servicios, presencia de marca y captar clientes de forma clara y moderna.</p>
-                        <a href="https://gamastudiomx.com" target="_blank" class="portfolio-link">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <!-- Proyecto 3: Cuellos Textiles Goar -->
-                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="portfolio-image project-shot">
-                        <img src="cuellos-textiles-goar.png" alt="Pagina Empresarial de un taller">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="project-tag">Catálogo / Página Web</span>
-                        <h3>Cuellos Textiles Goar</h3>
-                        <p>Página web enfocada en mostrar productos textiles, mejorar la presentación del negocio y facilitar el contacto comercial.</p>
-                        <a href="https://cuellos-textiles-goar.vercel.app" target="_blank" class="portfolio-link">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <!-- Proyecto 4: Demo de Ventas Online -->
-                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="250">
-                    <div class="portfolio-content">
-                        <div class="portfolio-image project-shot">
-                        <img src="demo-tienda-online.png" alt="Dashboard de app web privada para Damaris">
-                        </div>
-                        <span class="project-tag">Demo Comercial</span>
-                        <h3>Demo de Ventas Online</h3>
-                        <p>Proyecto demostrativo para mostrar cómo puede verse un sitio con catálogo, experiencia de compra y contacto comercial.</p>
-                        <a href="https://ejemplo-tienda-digital.vercel.app" target="_blank" class="portfolio-link">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <!-- Proyecto 5: App de Damaris -->
-                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="portfolio-image project-shot">
-                        <img src="damaris-dashboard.png" alt="Dashboard de app web privada">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="project-tag">App Web Privada</span>
-                        <h3>Sistema de Control de ventas</h3>
-                        <p>Aplicación web privada para control de ventas, gastos, ganancia neta e inventario. Por privacidad, se muestra únicamente una vista previa del sistema.</p>
-                        <span class="portfolio-link disabled-link">Proyecto privado · vista previa con capturas</span>
-                    </div>
-                </div>
-
-            </div>
-            
-            <div class="portfolio-more" data-aos="fade-up" data-aos-delay="350">
-                <a href="portafolio.html" class="btn-view-more">Ver más proyectos <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cómo trabajamos (Proceso en 3 pasos) -->
-    <section id="process" style="background: var(--bg-surface); padding-top: 40px; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
-        <div class="container unique-features-box" data-aos="fade-up">
-            <h2>Tu web o app lista en 3 simples pasos</h2>
-            <div class="features-grid">
-                <div class="feature-item" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="icon-wrapper"><i class="fas fa-comments"></i></div>
-                    <h3>1. Platicamos</h3>
-                    <p>Nos contactas por WhatsApp para entender tu negocio y elegir si necesitas una página web, catálogo digital, sistema interno o app web.</p>
-                </div>
-                <div class="feature-item" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="icon-wrapper"><i class="fas fa-pencil-ruler"></i></div>
-                    <h3>2. Diseñamos</h3>
-                    <p>Nos envías tus textos, fotos e ideas, y programamos tu proyecto a la medida con revisiones de tu parte.</p>
-                </div>
-                <div class="feature-item" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="icon-wrapper"><i class="fas fa-rocket"></i></div>
-                    <h3>3. ¡Lanzamos!</h3>
-                    <p>Publicamos tu web o app optimizada en internet, lista para recibir clientes y funcionar en cualquier dispositivo.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ingenix Labs -->
-    <section id="labs">
-        <div class="container">
-            <div class="labs-header" data-aos="fade-up">
-                <h2>Ingenix Labs <i class="fas fa-flask" style="color: var(--primary);"></i></h2>
-                <p>Laboratorio de apps experimentales creadas para que cualquier persona pueda probarlas, usarlas y descubrir nuevas soluciones digitales.</p>
-            </div>
-            
-            <div class="labs-grid">
-                <div class="labs-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="labs-status">App Experimental</div>
-                    <h3>Task & Routine Tracker</h3>
-                    <p>App experimental de productividad y seguimiento de rutinas. Ingenix Labs será el espacio donde publicaremos herramientas digitales abiertas para todos, no solo proyectos para clientes.</p>
-                    <div class="tech-tags">
-                        <span>Capacitor</span>
-                        <span>JavaScript</span>
-                        <span>Lógica Backend</span>
-                        <span>Uso Público</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Precios -->
-    <section id="pricing">
-        <div class="container">
-            <h2 data-aos="fade-up">Paquetes para páginas web, catálogos y apps web</h2>
-            <p class="pricing-intro" data-aos="fade-up" data-aos-delay="80">
+<!-- Precios -->
+<section class="pricing-3d-section" id="pricing">
+<div class="container">
+<h2 data-aos="fade-up">Paquetes para páginas web, catálogos y apps web</h2>
+<p class="pricing-intro" data-aos="fade-up" data-aos-delay="80">
                 Estos paquetes son una base para iniciar. Adaptamos cada proyecto a cualquier tipo de negocio o idea: servicios, restaurantes, estética, consultorio, taller, escuela, marca personal, catálogo, portafolio, sistema interno o ventas en línea.
             </p>
-            <p class="mobile-carousel-hint">Desliza hacia los lados para ver todos los paquetes</p>
-            <div class="pricing-grid" aria-label="Carrusel de paquetes web">
-                
-                <div class="pricing-card landing" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-glow"></div>
-                    <h3>🚀 Landing Web</h3>
-                    <p class="target">Ideal para negocios que necesitan presencia profesional en internet de forma rápida y económica.</p>
-                    <p class="plan-time"><i class="fas fa-clock"></i> 2 a 4 días hábiles</p>
-                    <h4 class="price"><span class="price-prefix">Desde</span>$2,500 MXN</h4>
-                    <div class="divider"></div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Página de una sola vista larga</li>
-                        <li><i class="fas fa-check"></i> Información del negocio, horarios y ubicación</li>
-                        <li><i class="fas fa-check"></i> Botón directo a WhatsApp</li>
-                        <li><i class="fas fa-check"></i> Redes sociales y datos de contacto</li>
-                        <li><i class="fas fa-check"></i> Diseño adaptable a celular</li>
-                        <li><i class="fas fa-check"></i> 1 ronda de cambios</li>
-                    </ul>
-                    <a href="#contact" class="btn-block">Cotizar este proyecto</a>
-                </div>
-
-                <div class="pricing-card catalog" data-aos="fade-up" data-aos-delay="150">
-                    <div class="card-glow"></div>
-                    <h3>📌 Web/Catálogo Simple</h3>
-                    <p class="target">Ideal para mostrar servicios, productos, menús, paquetes, trabajos, proyectos o información organizada por categorías sin panel administrativo.</p>
-                    <p class="plan-time"><i class="fas fa-clock"></i> 4 a 7 días hábiles</p>
-                    <h4 class="price"><span class="price-prefix">Desde</span>$3,500 MXN</h4>
-                    <div class="divider"></div>
-                    <ul>
-                        <li><i class="fas fa-check highlight"></i> <strong>Todo lo de Landing Web +</strong></li>
-                        <li><i class="fas fa-check"></i> Secciones o catálogo por categorías</li>
-                        <li><i class="fas fa-check"></i> Hasta 25 elementos iniciales: servicios, productos, menús, proyectos o paquetes</li>
-                        <li><i class="fas fa-check"></i> Elementos destacados, promociones, novedades o servicios principales</li>
-                        <li><i class="fas fa-check"></i> Botón para consultar, reservar o pedir información por WhatsApp</li>
-                        <li><i class="fas fa-check"></i> 2 rondas de cambios</li>
-                    </ul>
-                    <a href="#contact" class="btn-block">Cotizar este proyecto</a>
-                </div>
-
-                <div class="pricing-card catalog-pro" data-aos="fade-up" data-aos-delay="200">
-                    <div class="popular-badge">Más Elegido</div>
-                    <div class="card-glow"></div>
-                    <h3>🎯 Web Pro / Catálogo Avanzado</h3>
-                    <p class="target">Ideal para negocios o proyectos que necesitan una página más completa, visual y con flujo directo de contacto, pedido, reserva o solicitud por WhatsApp.</p>
-                    <p class="plan-time"><i class="fas fa-clock"></i> 7 a 10 días hábiles</p>
-                    <h4 class="price"><span class="price-prefix">Desde</span>$5,500 MXN</h4>
-                    <div class="divider"></div>
-                    <ul>
-                        <li><i class="fas fa-check highlight"></i> <strong>Todo lo de Web/Catálogo Simple +</strong></li>
-                        <li><i class="fas fa-check"></i> Hasta 40 elementos iniciales: servicios, productos, proyectos, menús o paquetes</li>
-                        <li><i class="fas fa-check"></i> Filtros o categorías básicas</li>
-                        <li><i class="fas fa-check"></i> Lista de solicitud, pedido, reserva o contacto por WhatsApp</li>
-                        <li><i class="fas fa-check"></i> Sección de cómo comprar, reservar, contratar o solicitar información</li>
-                        <li><i class="fas fa-check"></i> Guía breve para actualizar contenido</li>
-                    </ul>
-                    <a href="#contact" class="btn-block btn-block-active glow-effect">Cotizar este proyecto</a>
-                </div>
-
-                <div class="pricing-card panel" data-aos="fade-up" data-aos-delay="250">
-                    <div class="card-glow"></div>
-                    <h3>🛠️ Panel Administrable</h3>
-                    <p class="target">Ideal para negocios o proyectos que quieren editar contenido, servicios, productos, precios, fotos, horarios o disponibilidad sin depender del desarrollador.</p>
-                    <p class="plan-time"><i class="fas fa-clock"></i> 10 a 15 días hábiles</p>
-                    <h4 class="price"><span class="price-prefix">Desde</span>$7,500 MXN</h4>
-                    <div class="divider"></div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Contenido conectado a base de datos</li>
-                        <li><i class="fas fa-check"></i> Login privado para el negocio</li>
-                        <li><i class="fas fa-check"></i> Agregar, editar y eliminar contenido</li>
-                        <li><i class="fas fa-check"></i> Subida de fotos, precios, horarios, estados o disponibilidad</li>
-                        <li><i class="fas fa-check"></i> Categorías, secciones y elementos destacados</li>
-                        <li><i class="fas fa-check"></i> Guía breve de uso del panel</li>
-                    </ul>
-                    <a href="#contact" class="btn-block">Cotizar este proyecto</a>
-                </div>
-
-                <div class="pricing-card ecommerce-plan" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card-glow"></div>
-                    <h3>💎 Proyecto Web Avanzado</h3>
-                    <p class="target">Ideal para proyectos que necesitan funciones más avanzadas: ventas en línea, reservas, pagos, paneles, solicitudes, inventario o gestión de clientes.</p>
-                    <p class="plan-time"><i class="fas fa-clock"></i> 3 a 5 semanas</p>
-                    <h4 class="price"><span class="price-prefix">Desde</span>$9,500 MXN</h4>
-                    <div class="divider"></div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Flujo avanzado de venta, reserva o solicitud</li>
-                        <li><i class="fas fa-check"></i> Pagos en línea o integración especial según alcance</li>
-                        <li><i class="fas fa-check"></i> Panel para administrar contenido, servicios, productos o registros</li>
-                        <li><i class="fas fa-check"></i> Gestión de pedidos, citas, solicitudes o clientes</li>
-                        <li><i class="fas fa-check"></i> Inventario, agenda o control básico según alcance</li>
-                        <li><i class="fas fa-check"></i> Configuración de entregas, reservas, notificaciones o procesos internos</li>
-                    </ul>
-                    <a href="#contact" class="btn-block">Cotizar este proyecto</a>
-                </div>
-
-            </div>
-
-            <div class="pricing-note" data-aos="fade-up" data-aos-delay="350">
-                <i class="fas fa-circle-info"></i>
-                <p>Los precios pueden variar según secciones, cantidad de contenido, funciones especiales e integraciones. Dominio, hosting, base de datos, almacenamiento, pasarelas de pago, plataformas externas, publicidad o mantenimiento mensual se cotizan aparte si aplican.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq">
-        <div class="container">
-            <h2 data-aos="fade-up">Preguntas Frecuentes</h2>
-            <div class="faq-container" data-aos="fade-up">
-                <details class="faq-item">
-                    <summary>¿Qué necesito para empezar mi proyecto?</summary>
-                    <div class="faq-content">
-                        Solo necesitamos que nos platiques sobre tu negocio o idea, qué quieres lograr con tu página o app, servicios, productos, contenido, logotipo, fotografías, colores de marca y datos de contacto. Con eso te recomendamos el plan más adecuado.
-                    </div>
-                </details>
-                <details class="faq-item">
-                    <summary>¿En cuánto tiempo queda lista mi página?</summary>
-                    <div class="faq-content">
-                        Depende del tipo de proyecto. Una landing puede tomar de 2 a 4 días hábiles, una web/catálogo de 4 a 10 días hábiles y un sistema administrable o proyecto avanzado puede requerir más tiempo según funciones, contenido e integraciones.
-                    </div>
-                </details>
-                <details class="faq-item">
-                    <summary>¿Tendré que pagar mensualidades?</summary>
-                    <div class="faq-content">
-                        No cobramos mensualidad obligatoria por el diseño. Sin embargo, dominio, hosting, base de datos, almacenamiento, pasarelas de pago, plataformas externas o mantenimiento mensual pueden generar costos aparte según el proyecto.
-                    </div>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto con Calendly -->
-    <section id="contact">
-        <div class="container">
-            <h2 data-aos="fade-up">¿Listo para crear tu web o app?</h2>
-            
-            <!-- CORRECCIÓN: Ahora el grid se respeta en móvil y no aplasta a Calendly -->
-            <div class="contact-grid">
-                
-                <div class="contact-info-box" data-aos="fade-right">
-                    <p class="contact-desc">Mándanos un mensaje por WhatsApp o agenda una llamada. Te asesoramos gratis para elegir si tu negocio o idea necesita una página web, catálogo digital, sistema administrable o app web.</p>
-                    
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div>
-                            <h4>WhatsApp Directo</h4>
-                            <a href="https://wa.me/524451820808" target="_blank">+52 445 182 0808</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Correo Electrónico</h4>
-                            <a href="mailto:ingenixhub@gmail.com">ingenixhub@gmail.com</a>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/ingenixhub/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/brandon-andre-gordillo-moreno-342403418/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-
-                <!-- Integración Calendly -->
-                <div class="calendly-box" data-aos="fade-left" style="background: #fff; border-radius: 20px; padding: 10px; overflow: hidden;">
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/andregordillo9/30min" style="min-width:0;width:100%;height:500px;"></div>
-                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Ingenix Hub. Páginas Web, Apps Web y Software en el Bajío.</p>
-    </footer>
-
-    <!-- Botón Flotante WhatsApp -->
-    <a href="https://wa.me/524451820808" target="_blank" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
+<p class="mobile-carousel-hint">Desliza hacia los lados para ver todos los paquetes</p>
+<div class="pricing-3d-wrapper" data-aos="zoom-in" data-aos-delay="120"><button aria-label="Paquete anterior" class="carousel-control pricing-prev" id="pricing-prev" type="button"><i class="fas fa-chevron-left"></i></button><div aria-live="polite" class="pricing-3d-scene" id="pricing-3d-scene"><div aria-hidden="true" class="pricing-card pricing-3d-card landing far-prev" data-index="0" data-plan-class="landing">
+<div class="card-glow"></div>
+<h3>🚀 Landing Web</h3>
+<p class="target">Ideal para negocios que necesitan presencia profesional en internet de forma rápida y económica.</p>
+<p class="plan-time"><i class="fas fa-clock"></i> 2 a 4 días hábiles</p>
+<h4 class="price"><span class="price-prefix">Desde</span>$2,500 MXN</h4>
+<div class="divider"></div>
+<ul><li><i class="fas fa-check"></i> Página de una sola vista profesional</li><li><i class="fas fa-check"></i> Información, horarios, ubicación y contacto</li><li><i class="fas fa-check"></i> Botón directo a WhatsApp</li><li><i class="fas fa-check"></i> Diseño adaptable a celular</li></ul>
+<a class="btn-block" href="#contact">Cotizar este proyecto</a>
+</div><div aria-hidden="true" class="pricing-card pricing-3d-card catalog prev" data-index="1" data-plan-class="catalog">
+<div class="card-glow"></div>
+<h3>📌 Web/Catálogo Simple</h3>
+<p class="target">Ideal para mostrar servicios, productos, menús, paquetes, trabajos, proyectos o información organizada por categorías sin panel administrativo.</p>
+<p class="plan-time"><i class="fas fa-clock"></i> 4 a 7 días hábiles</p>
+<h4 class="price"><span class="price-prefix">Desde</span>$3,500 MXN</h4>
+<div class="divider"></div>
+<ul><li><i class="fas fa-check highlight"></i><strong>Todo lo de Landing Web +</strong></li><li><i class="fas fa-check"></i> Secciones o catálogo por categorías</li><li><i class="fas fa-check"></i> Hasta 25 elementos iniciales</li><li><i class="fas fa-check"></i> WhatsApp para consultar, reservar o pedir información</li></ul>
+<a class="btn-block" href="#contact">Cotizar este proyecto</a>
+</div><div aria-hidden="false" class="pricing-card pricing-3d-card catalog-pro active" data-index="2" data-plan-class="catalog-pro">
+<div class="popular-badge">Más Elegido</div>
+<div class="card-glow"></div>
+<h3>🎯 Web Pro / Catálogo Avanzado</h3>
+<p class="target">Ideal para negocios o proyectos que necesitan una página más completa, visual y con flujo directo de contacto, pedido, reserva o solicitud por WhatsApp.</p>
+<p class="plan-time"><i class="fas fa-clock"></i> 7 a 10 días hábiles</p>
+<h4 class="price"><span class="price-prefix">Desde</span>$5,500 MXN</h4>
+<div class="divider"></div>
+<ul><li><i class="fas fa-check highlight"></i><strong>Todo lo de Web/Catálogo Simple +</strong></li><li><i class="fas fa-check"></i> Hasta 40 elementos iniciales</li><li><i class="fas fa-check"></i> Filtros o categorías básicas</li><li><i class="fas fa-check"></i> Flujo de pedido, reserva o contacto por WhatsApp</li></ul>
+<a class="btn-block btn-block-active glow-effect" href="#contact">Cotizar este proyecto</a>
+</div><div aria-hidden="true" class="pricing-card pricing-3d-card panel next" data-index="3" data-plan-class="panel">
+<div class="card-glow"></div>
+<h3>🛠️ Panel Administrable</h3>
+<p class="target">Ideal para negocios o proyectos que quieren editar contenido, servicios, productos, precios, fotos, horarios o disponibilidad sin depender del desarrollador.</p>
+<p class="plan-time"><i class="fas fa-clock"></i> 10 a 15 días hábiles</p>
+<h4 class="price"><span class="price-prefix">Desde</span>$7,500 MXN</h4>
+<div class="divider"></div>
+<ul><li><i class="fas fa-check"></i> Login privado para el negocio</li><li><i class="fas fa-check"></i> Agregar, editar y eliminar contenido</li><li><i class="fas fa-check"></i> Subida de fotos, precios, horarios o disponibilidad</li><li><i class="fas fa-check"></i> Guía breve de uso del panel</li></ul>
+<a class="btn-block" href="#contact">Cotizar este proyecto</a>
+</div><div aria-hidden="true" class="pricing-card pricing-3d-card ecommerce-plan far-next" data-index="4" data-plan-class="ecommerce-plan">
+<div class="card-glow"></div>
+<h3>💎 Proyecto Web Avanzado</h3>
+<p class="target">Ideal para proyectos que necesitan funciones más avanzadas: ventas en línea, reservas, pagos, paneles, solicitudes, inventario o gestión de clientes.</p>
+<p class="plan-time"><i class="fas fa-clock"></i> 3 a 5 semanas</p>
+<h4 class="price"><span class="price-prefix">Desde</span>$9,500 MXN</h4>
+<div class="divider"></div>
+<ul><li><i class="fas fa-check"></i> Flujo avanzado de venta, reserva o solicitud</li><li><i class="fas fa-check"></i> Pagos en línea o integración especial</li><li><i class="fas fa-check"></i> Panel para administrar contenido o registros</li><li><i class="fas fa-check"></i> Gestión de pedidos, citas, solicitudes o clientes</li></ul>
+<a class="btn-block" href="#contact">Cotizar este proyecto</a>
+</div></div><button aria-label="Paquete siguiente" class="carousel-control pricing-next-btn" id="pricing-next" type="button"><i class="fas fa-chevron-right"></i></button></div><div aria-label="Indicadores de paquetes" class="carousel-dots pricing-dots" id="pricing-dots"><button aria-label="Ver 🚀 Landing Web" class="dot" type="button"></button><button aria-label="Ver 📌 Web/Catálogo Simple" class="dot" type="button"></button><button aria-label="Ver 🎯 Web Pro / Catálogo Avanzado" class="dot active" type="button"></button><button aria-label="Ver 🛠️ Panel Administrable" class="dot" type="button"></button><button aria-label="Ver 💎 Proyecto Web Avanzado" class="dot" type="button"></button></div>
+<div class="pricing-note" data-aos="fade-up" data-aos-delay="350">
+<i class="fas fa-circle-info"></i>
+<p>Los precios pueden variar según secciones, cantidad de contenido, funciones especiales e integraciones. Dominio, hosting, base de datos, almacenamiento, pasarelas de pago, plataformas externas, publicidad o mantenimiento mensual se cotizan aparte si aplican.</p>
+</div>
+</div>
+</section>
+<!-- FAQ interactiva -->
+<section id="faq">
+<div class="container">
+<h2 data-aos="fade-up">Preguntas Frecuentes</h2>
+<div class="faq-container" data-aos="fade-up">
+<details class="faq-item"><summary>¿Qué necesito para empezar mi proyecto?</summary><div class="faq-content">Cuéntanos qué tipo de negocio o idea tienes, qué objetivo quieres lograr, si necesitas mostrar servicios/productos, si tienes logo, fotos, textos y datos de contacto. Con eso te recomendamos el plan más conveniente.</div></details>
+<details class="faq-item"><summary>¿Los precios son fijos?</summary><div class="faq-content">Son precios base. El costo final puede variar según el número de secciones, cantidad de contenido, funciones especiales, panel administrable, pagos en línea o integraciones externas.</div></details>
+<details class="faq-item"><summary>¿En cuánto tiempo queda lista mi página?</summary><div class="faq-content">Una landing puede tomar de 2 a 4 días hábiles. Un catálogo o web más completa puede tomar de 4 a 10 días. Proyectos con panel, pagos o funciones especiales pueden requerir más tiempo.</div></details>
+<details class="faq-item"><summary>¿Tendré que pagar mensualidades?</summary><div class="faq-content">No cobramos mensualidad obligatoria por el diseño. Dominio, hosting, base de datos, almacenamiento, pasarelas de pago, plataformas externas o mantenimiento pueden cotizarse aparte si aplican.</div></details>
+</div>
+</div>
+</section>
+<!-- Contacto con Calendly -->
+<section id="contact">
+<div class="container">
+<h2 data-aos="fade-up">¿Listo para crear tu web o app?</h2>
+<!-- CORRECCIÓN: Ahora el grid se respeta en móvil y no aplasta a Calendly -->
+<div class="contact-grid">
+<div class="contact-info-box" data-aos="fade-right">
+<p class="contact-desc">Mándanos un mensaje por WhatsApp o agenda una llamada. Te asesoramos gratis para elegir si tu negocio o idea necesita una página web, catálogo digital, sistema administrable o app web.</p>
+<div class="contact-item">
+<i class="fab fa-whatsapp"></i>
+<div>
+<h4>WhatsApp Directo</h4>
+<a href="https://wa.me/524451820808?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web%20para%20mi%20negocio." target="_blank">+52 445 182 0808</a>
+</div>
+</div>
+<div class="contact-item">
+<i class="fas fa-envelope"></i>
+<div>
+<h4>Correo Electrónico</h4>
+<a href="mailto:ingenixhub@gmail.com">ingenixhub@gmail.com</a>
+</div>
+</div>
+<div class="social-links">
+<a href="https://www.instagram.com/ingenixhub/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+<a href="https://www.linkedin.com/in/brandon-andre-gordillo-moreno-342403418/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+</div>
+</div>
+<!-- Integración Calendly -->
+<div class="calendly-box" data-aos="fade-left" style="background: #fff; border-radius: 20px; padding: 10px; overflow: hidden;">
+<div class="calendly-inline-widget" data-url="https://calendly.com/andregordillo9/30min" style="min-width:0;width:100%;height:500px;"></div>
+<script async="" src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer>
+<p>© 2026 Ingenix Hub. Páginas Web, Apps Web y Software en el Bajío.</p>
+</footer>
+<!-- Botón Flotante WhatsApp -->
+<a class="whatsapp-float" href="https://wa.me/524451820808?text=Hola%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web%20para%20mi%20negocio." target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
         AOS.init({
             once: true,
-            offset: 40,
-            duration: 700,
-            easing: 'ease-out-quart',
+            offset: 60,
+            duration: 820,
+            easing: 'ease-out-cubic',
             disable: () => window.innerWidth < 768
         });
 
@@ -478,11 +399,11 @@
         themeBtn.addEventListener('click', () => {
             document.body.classList.toggle('light-mode');
             if(document.body.classList.contains('light-mode')){
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            } else {
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
             }
         });
 
@@ -512,6 +433,311 @@
                 }
             });
         });
+
+
+        // --- CARRUSEL 3D DE PORTAFOLIO ---
+        const portfolioCards = document.querySelectorAll('.portfolio-3d-card');
+        const portfolioDots = document.querySelectorAll('#portfolio-dots .dot');
+        const portfolioPrev = document.getElementById('portfolio-prev');
+        const portfolioNext = document.getElementById('portfolio-next');
+        const portfolioScene = document.getElementById('portfolio-3d-scene');
+        let currentProject = 0;
+        let portfolioTimer;
+
+        const portfolioProgress = document.getElementById('portfolio-progress');
+        function restartPortfolioProgress() {
+            if (!portfolioProgress) return;
+            portfolioProgress.style.animation = 'none';
+            portfolioProgress.offsetHeight;
+            portfolioProgress.style.animation = '';
+        }
+
+        function updatePortfolioCarousel(index) {
+            if (!portfolioCards.length) return;
+
+            const total = portfolioCards.length;
+            currentProject = (index + total) % total;
+
+            portfolioCards.forEach((card, i) => {
+                const offset = (i - currentProject + total) % total;
+                card.className = 'portfolio-3d-card';
+                card.setAttribute('aria-hidden', 'true');
+
+                if (offset === 0) {
+                    card.classList.add('active');
+                    card.setAttribute('aria-hidden', 'false');
+                } else if (offset === 1) {
+                    card.classList.add('next');
+                } else if (offset === 2) {
+                    card.classList.add('far-next');
+                } else if (offset === total - 1) {
+                    card.classList.add('prev');
+                } else if (offset === total - 2) {
+                    card.classList.add('far-prev');
+                } else {
+                    card.classList.add('hidden-card');
+                }
+            });
+
+            portfolioDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentProject);
+            });
+
+            if (typeof restartPortfolioProgress === 'function') {
+                restartPortfolioProgress();
+            }
+        }
+
+        function startPortfolioAutoplay() {
+            if (!portfolioCards.length) return;
+            stopPortfolioAutoplay();
+            portfolioTimer = setInterval(() => {
+                updatePortfolioCarousel(currentProject + 1);
+            }, 4500);
+        }
+
+        function stopPortfolioAutoplay() {
+            if (portfolioTimer) clearInterval(portfolioTimer);
+        }
+
+        if (portfolioCards.length) {
+            portfolioPrev.addEventListener('click', () => {
+                updatePortfolioCarousel(currentProject - 1);
+                startPortfolioAutoplay();
+            });
+
+            portfolioNext.addEventListener('click', () => {
+                updatePortfolioCarousel(currentProject + 1);
+                startPortfolioAutoplay();
+            });
+
+            portfolioDots.forEach((dot, i) => {
+                dot.addEventListener('click', () => {
+                    updatePortfolioCarousel(i);
+                    startPortfolioAutoplay();
+                });
+            });
+
+            portfolioCards.forEach((card, i) => {
+                card.addEventListener('click', () => {
+                    if (!card.classList.contains('active')) {
+                        updatePortfolioCarousel(i);
+                        startPortfolioAutoplay();
+                    }
+                });
+            });
+
+            portfolioScene.addEventListener('mouseenter', stopPortfolioAutoplay);
+            portfolioScene.addEventListener('mouseleave', startPortfolioAutoplay);
+            updatePortfolioCarousel(0);
+            startPortfolioAutoplay();
+        }
+
+
+        // --- CARRUSEL 3D DE PRECIOS ---
+        const pricingCards = document.querySelectorAll('.pricing-3d-card');
+        const pricingDots = document.querySelectorAll('#pricing-dots .dot');
+        const pricingPrev = document.getElementById('pricing-prev');
+        const pricingNext = document.getElementById('pricing-next');
+        const pricingScene = document.getElementById('pricing-3d-scene');
+        let currentPricing = pricingCards.length > 2 ? 2 : 0; // Inicia en "Más Elegido"
+
+        function updatePricingCarousel(index) {
+            if (!pricingCards.length) return;
+
+            const total = pricingCards.length;
+            currentPricing = (index + total) % total;
+
+            pricingCards.forEach((card, i) => {
+                const baseClass = card.dataset.planClass || '';
+                const offset = (i - currentPricing + total) % total;
+                card.className = `pricing-card pricing-3d-card ${baseClass}`.trim();
+                card.setAttribute('aria-hidden', 'true');
+
+                if (offset === 0) {
+                    card.classList.add('active');
+                    card.setAttribute('aria-hidden', 'false');
+                } else if (offset === 1) {
+                    card.classList.add('next');
+                } else if (offset === 2) {
+                    card.classList.add('far-next');
+                } else if (offset === total - 1) {
+                    card.classList.add('prev');
+                } else if (offset === total - 2) {
+                    card.classList.add('far-prev');
+                } else {
+                    card.classList.add('hidden-card');
+                }
+            });
+
+            pricingDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentPricing);
+            });
+        }
+
+        if (pricingCards.length && pricingPrev && pricingNext && pricingScene) {
+            pricingPrev.addEventListener('click', () => updatePricingCarousel(currentPricing - 1));
+            pricingNext.addEventListener('click', () => updatePricingCarousel(currentPricing + 1));
+
+            pricingDots.forEach((dot, i) => {
+                dot.addEventListener('click', () => updatePricingCarousel(i));
+            });
+
+            pricingCards.forEach((card, i) => {
+                card.addEventListener('click', () => {
+                    if (!card.classList.contains('active')) {
+                        updatePricingCarousel(i);
+                    }
+                });
+            });
+
+            let pricingTouchStartX = 0;
+            let pricingTouchEndX = 0;
+            pricingScene.addEventListener('touchstart', (event) => {
+                pricingTouchStartX = event.changedTouches[0].screenX;
+            }, { passive: true });
+
+            pricingScene.addEventListener('touchend', (event) => {
+                pricingTouchEndX = event.changedTouches[0].screenX;
+                const distance = pricingTouchEndX - pricingTouchStartX;
+                if (Math.abs(distance) > 45) {
+                    updatePricingCarousel(currentPricing + (distance < 0 ? 1 : -1));
+                }
+            }, { passive: true });
+
+            updatePricingCarousel(currentPricing);
+        }
+
+
+        // Efecto 3D suave al mover el mouse sobre tarjetas
+        const tiltTargets = document.querySelectorAll('[data-tilt-inner], .pricing-card:not(.pricing-3d-card), .labs-card, .tech-stack-box, .contact-info-box');
+        const canTilt = window.matchMedia('(pointer: fine)').matches;
+
+        if (canTilt) {
+            tiltTargets.forEach((target) => {
+                target.classList.add('tilt-enabled');
+                target.addEventListener('mousemove', (event) => {
+                    const rect = target.getBoundingClientRect();
+                    const x = event.clientX - rect.left;
+                    const y = event.clientY - rect.top;
+                    const midX = rect.width / 2;
+                    const midY = rect.height / 2;
+                    const rotateY = ((x - midX) / midX) * 5;
+                    const rotateX = -((y - midY) / midY) * 5;
+
+                    target.style.setProperty('--tilt-x', `${rotateX.toFixed(2)}deg`);
+                    target.style.setProperty('--tilt-y', `${rotateY.toFixed(2)}deg`);
+                    target.style.setProperty('--spot-x', `${x}px`);
+                    target.style.setProperty('--spot-y', `${y}px`);
+                });
+
+                target.addEventListener('mouseleave', () => {
+                    target.style.setProperty('--tilt-x', '0deg');
+                    target.style.setProperty('--tilt-y', '0deg');
+                    target.style.removeProperty('--spot-x');
+                    target.style.removeProperty('--spot-y');
+                });
+            });
+        }
+
+        // Swipe en celular para el carrusel 3D
+        let touchStartX = 0;
+        let touchEndX = 0;
+        if (portfolioScene) {
+            portfolioScene.addEventListener('touchstart', (event) => {
+                touchStartX = event.changedTouches[0].screenX;
+            }, { passive: true });
+
+            portfolioScene.addEventListener('touchend', (event) => {
+                touchEndX = event.changedTouches[0].screenX;
+                const distance = touchEndX - touchStartX;
+                if (Math.abs(distance) > 45) {
+                    updatePortfolioCarousel(currentProject + (distance < 0 ? 1 : -1));
+                    startPortfolioAutoplay();
+                }
+            }, { passive: true });
+        }
+
+
+        // --- Selector interactivo de proyecto ---
+        const selectorData = {
+            landing: { title: 'Landing Web', desc: 'Para negocios que necesitan presencia profesional rápida: servicios, ubicación, horarios, redes y WhatsApp.', price: 'Desde $2,500 MXN', time: '2 a 4 días' },
+            catalog: { title: 'Web/Catálogo Simple', desc: 'Para mostrar servicios, productos, menús, paquetes o proyectos organizados por categorías.', price: 'Desde $3,500 MXN', time: '4 a 7 días' },
+            panel: { title: 'Panel Administrable', desc: 'Para editar contenido, productos, precios, fotos, disponibilidad o registros sin depender del desarrollador.', price: 'Desde $7,500 MXN', time: '10 a 15 días' },
+            shop: { title: 'Proyecto Web Avanzado', desc: 'Para ventas en línea, pagos, reservas, pedidos, inventario o gestión de clientes.', price: 'Desde $9,500 MXN', time: '3 a 5 semanas' },
+            custom: { title: 'App Web a la Medida', desc: 'Para sistemas internos, dashboards, automatizaciones o procesos específicos de tu negocio.', price: 'Cotización personalizada', time: 'Según alcance' }
+        };
+
+        document.querySelectorAll('.selector-tab').forEach((tab) => {
+            tab.addEventListener('click', () => {
+                const data = selectorData[tab.dataset.projectType];
+                document.querySelectorAll('.selector-tab').forEach(btn => btn.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById('selector-title').textContent = data.title;
+                document.getElementById('selector-desc').textContent = data.desc;
+                document.getElementById('selector-price').textContent = data.price;
+                document.getElementById('selector-time').textContent = data.time;
+            });
+        });
+
+        // --- Mockup interactivo de proyectos ---
+        const showcaseData = {
+            textibajio: { title: 'TextiBajío', desc: 'Plataforma para dar visibilidad a negocios textiles con catálogo, perfiles y contacto directo.', img: 'textibajio.png', url: 'textibajio.com', tags: ['Next.js', 'React', 'Tailwind CSS', 'Vercel', 'WhatsApp'] },
+            gama: { title: 'Gama Studio MX', desc: 'Sitio profesional para presentar servicios, portafolio visual y contacto para clientes.', img: 'gama-studio.png', url: 'gamastudiomx.com', tags: ['Next.js', 'Tailwind CSS', 'Galería', 'Responsive', 'Vercel'] },
+            goar: { title: 'Cuellos Textiles Goar', desc: 'Página empresarial con presentación de productos, secciones claras y contacto comercial.', img: 'cuellos-textiles-goar.png', url: 'cuellos-textiles-goar.vercel.app', tags: ['Next.js', 'Catálogo', 'WhatsApp', 'SEO básico', 'Vercel'] },
+            demo: { title: 'Demo de Ventas Online', desc: 'Demo comercial con catálogo, carrito y experiencia de compra para mostrar el potencial de una tienda.', img: 'demo-tienda-online.png', url: 'ejemplo-tienda-digital.vercel.app', tags: ['React', 'Carrito', 'Catálogo', 'UI comercial', 'Vercel'] },
+            damaris: { title: 'Sistema de Control de Ventas', desc: 'App privada con dashboard financiero, ventas, gastos, inventario y acciones rápidas.', img: 'damaris-dashboard.png', url: 'app privada / dashboard', tags: ['React', 'Supabase', 'Auth', 'Dashboard', 'Inventario'] }
+        };
+
+        document.querySelectorAll('.mockup-option').forEach((button) => {
+            button.addEventListener('click', () => {
+                const data = showcaseData[button.dataset.showcase];
+                document.querySelectorAll('.mockup-option').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                document.getElementById('mockup-title').textContent = data.title;
+                document.getElementById('mockup-desc').textContent = data.desc;
+                document.getElementById('mockup-url').textContent = data.url;
+                document.getElementById('mockup-desktop-img').src = data.img;
+                document.getElementById('mockup-mobile-img').src = data.img;
+                document.getElementById('mockup-tags').innerHTML = data.tags.map(tag => `<span>${tag}</span>`).join('');
+            });
+        });
+
+        // --- Simulador de cotización ---
+        const simProjectType = document.getElementById('sim-project-type');
+        const simExtras = document.querySelectorAll('.sim-extra');
+        const simPrice = document.getElementById('sim-price');
+        const simTime = document.getElementById('sim-time');
+
+        function formatMXN(value) {
+            return new Intl.NumberFormat('es-MX').format(value);
+        }
+
+        function updateSimulator() {
+            if (!simProjectType || !simPrice) return;
+            let total = Number(simProjectType.value);
+            simExtras.forEach(extra => { if (extra.checked) total += Number(extra.value); });
+            simPrice.textContent = `Desde $${formatMXN(total)} MXN`;
+            simTime.textContent = `Tiempo aproximado: ${simProjectType.options[simProjectType.selectedIndex].dataset.time}`;
+        }
+
+        if (simProjectType) {
+            simProjectType.addEventListener('change', updateSimulator);
+            simExtras.forEach(extra => extra.addEventListener('change', updateSimulator));
+            updateSimulator();
+        }
+
+        // --- FAQ por categorías ---
+        document.querySelectorAll('.faq-tab').forEach((tab) => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.faq-tab').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.faq-panel').forEach(panel => panel.classList.remove('active'));
+                tab.classList.add('active');
+                const target = document.querySelector(`[data-faq-panel="${tab.dataset.faq}"]`);
+                if (target) target.classList.add('active');
+            });
+        });
+
     </script>
 </body>
 </html>
