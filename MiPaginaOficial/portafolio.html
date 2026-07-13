@@ -1,124 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Web y Apps | Ingenix Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Portafolio de Ingenix Hub: páginas web, catálogos digitales, apps web y sistemas para negocios.">
+    <meta name="theme-color" content="#0b1f52">
+    <title>Portafolio | Ingenix Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .portfolio-page-header {
-            padding: 120px 20px 45px 20px;
-            text-align: center;
-        }
-
-        .portfolio-page-header p {
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 600px) {
-            .portfolio-page-header {
-                padding: 90px 16px 28px 16px;
-            }
-
-            .portfolio-page-header h2 {
-                margin-bottom: 15px;
-            }
-        }
-    </style>
 </head>
-
 <body>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
-    <header>
-        <nav>
-            <a href="index.html" class="logo-link">
-                <div class="logo-wrapper">
-                    <img src="logo_no_bg.png" alt="Ingenix Hub Logo" class="logo-img">
-                </div>
+    <header class="site-header">
+        <div class="top-ribbon">
+            <a href="index.html#quote"><strong>Portafolio:</strong> algunos proyectos públicos y vistas previas autorizadas.</a>
+        </div>
+        <nav class="site-nav" aria-label="Navegación principal">
+            <a href="index.html#hero" class="logo-link" aria-label="Ir al inicio de Ingenix Hub">
+                <img src="logo_no_bg.png" alt="Ingenix Hub" class="logo-img">
             </a>
-            <ul class="nav-links portfolio-nav">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="index.html#contact" class="nav-contact-btn">Contacto</a></li>
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="nav-links" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a class="nav-item" href="index.html#hero">Inicio</a></li>
+                <li><a class="nav-item" href="index.html#services">Servicios</a></li>
+                <li><a class="nav-item" href="index.html#portfolio">Portafolio</a></li>
+                <li><a class="nav-item" href="index.html#process">Proceso</a></li>
+                <li><a class="nav-item" href="index.html#quote">Cotización</a></li>
+                <li><a class="nav-item" href="index.html#contact">Contacto</a></li>
+                <li><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar modo de color"><i class="fas fa-moon" aria-hidden="true"></i></button></li>
             </ul>
         </nav>
     </header>
 
-    <div class="portfolio-page-header">
-        <span class="hero-tag">Nuestro Trabajo</span>
-        <h2>Galería de páginas web y apps web</h2>
-        <p>Explora algunos proyectos reales que hemos desarrollado: sitios web, plataformas, catálogos digitales, sistemas privados y experiencias de venta o contacto en línea.</p>
-    </div>
-
-    <section id="portfolio-full" style="padding-top: 0;">
-        <div class="container">
-            <div class="portfolio-grid">
-
-                <div class="portfolio-card">
-                    <div class="portfolio-image project-shot"><img src="textibajio.png" alt="Vista previa de TextiBajío"></div>
-                    <div class="portfolio-content">
-                        <span class="project-tag">Plataforma Web & Catálogo</span>
-                        <h3>TextiBajío</h3>
-                        <p>Plataforma web desarrollada para impulsar negocios textiles mediante perfiles, catálogo digital y contacto directo.</p><div class="project-tech-row"><span>Firebase</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-                        <a href="https://textibajio.com" target="_blank" class="portfolio-link">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
+    <main>
+        <section class="hero portfolio-hero">
+            <div class="hero-light hero-light-one" aria-hidden="true"></div>
+            <div class="container hero-layout portfolio-hero-layout">
+                <div class="hero-copy" data-reveal>
+                    <span class="section-pill">Portafolio Ingenix Hub</span>
+                    <h1>Proyectos digitales con diseño, estructura y enfoque comercial.</h1>
+                    <p>Estos proyectos muestran distintos niveles de trabajo: páginas informativas, catálogos, demos comerciales y sistemas privados para control interno.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="https://wa.me/524451820808?text=Hola%2C%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20un%20proyecto%20web." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i>Cotizar algo similar</a>
+                        <a class="btn btn-ghost" href="index.html"><i class="fas fa-arrow-left" aria-hidden="true"></i>Volver al inicio</a>
                     </div>
                 </div>
-
-                <div class="portfolio-card">
-                    <div class="portfolio-image project-shot"><img src="gama-studio.png" alt="Vista previa de Gama Studio MX"></div>
-                    <div class="portfolio-content">
-                        <span class="project-tag">Sitio Web Corporativo</span>
-                        <h3>Gama Studio MX</h3>
-                        <p>Sitio web moderno para fortalecer la presencia digital de la marca y mostrar sus servicios de forma profesional.</p><div class="project-tech-row"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span></div>
-                        <a href="https://gamastudiomx.com" target="_blank" class="portfolio-link">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="portfolio-image project-shot"><img src="cuellos-textiles-goar.png" alt="Vista previa de Cuellos Textiles Goar"></div>
-                    <div class="portfolio-content">
-                        <span class="project-tag">Catálogo / Página Web</span>
-                        <h3>Cuellos Textiles Goar</h3>
-                        <p>Proyecto web creado para presentar productos textiles con una imagen profesional y facilitar el contacto con clientes.</p><div class="project-tech-row"><span>HTML</span><span>CSS</span><span>Responsive</span><span>Vercel</span></div>
-                        <a href="https://cuellos-textiles-goar.vercel.app" target="_blank" class="portfolio-link">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="portfolio-image project-shot"><img src="demo-tienda-online.png" alt="Vista previa de Demo de Ventas Online"></div>
-                    <div class="portfolio-content">
-                        <span class="project-tag">Demo Comercial</span>
-                        <h3>Demo de Ventas Online</h3>
-                        <p>Proyecto demostrativo para mostrar catálogo, conversión y experiencia de compra o contacto en celular y escritorio.</p><div class="project-tech-row"><span>Node.js</span><span>JavaScript</span><span>HTML/CSS</span><span>Backend</span></div>
-                        <a href="https://ejemplo-tienda-digital.vercel.app" target="_blank" class="portfolio-link">Visitar sitio <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="portfolio-image project-shot">
-                        <img src="damaris-dashboard.png" alt="Dashboard de app web privada para Damaris">
-                    </div>
-                    <div class="portfolio-content">
-                        <span class="project-tag">App Web Privada</span>
-                        <h3>Sistema Administrativo para Damaris</h3>
-                        <p>App web privada con panel de ingresos, gastos operativos, ganancia neta, inventario y acciones rápidas para el control del negocio.</p><div class="project-tech-row"><span>Next.js</span><span>React</span><span>PWA</span><span>Dashboard</span></div>
-                        <span class="portfolio-link disabled-link">Proyecto privado · vista previa con capturas</span>
-                    </div>
-                </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <p>&copy; 2026 Ingenix Hub. Páginas Web, Apps Web y Software en el Bajío.</p>
-    </footer>
+        <section class="section portfolio-list-section">
+            <div class="container portfolio-grid-page">
+                <article class="portfolio-page-card tilt-card" data-reveal>
+                    <div class="browser-mockup"><div class="browser-bar"><span></span><span></span><span></span><small>textibajio.com</small></div><img src="textibajio.png" alt="TextiBajío"></div>
+                    <div class="project-info"><small>Directorio y plataforma web</small><h3>TextiBajío</h3><p>Plataforma para digitalizar negocios textiles con perfiles, catálogo y contacto directo.</p><div class="tech-tags"><span>Firebase</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div><a href="https://textibajio.com" target="_blank" rel="noopener noreferrer">Visitar sitio <i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                </article>
 
+                <article class="portfolio-page-card tilt-card" data-reveal>
+                    <div class="browser-mockup"><div class="browser-bar"><span></span><span></span><span></span><small>gamastudiomx.com</small></div><img src="gama-studio.png" alt="Gama Studio MX"></div>
+                    <div class="project-info"><small>Sitio web corporativo</small><h3>Gama Studio MX</h3><p>Sitio profesional para presentar servicios, fortalecer marca y captar clientes con claridad.</p><div class="tech-tags"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span></div><a href="https://gamastudiomx.com" target="_blank" rel="noopener noreferrer">Visitar sitio <i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                </article>
+
+                <article class="portfolio-page-card tilt-card" data-reveal>
+                    <div class="browser-mockup"><div class="browser-bar"><span></span><span></span><span></span><small>cuellos-textiles-goar.vercel.app</small></div><img src="cuellos-textiles-goar.png" alt="Cuellos Textiles Goar"></div>
+                    <div class="project-info"><small>Catálogo y página web</small><h3>Cuellos Textiles Goar</h3><p>Página enfocada en mostrar productos textiles y facilitar el contacto comercial.</p><div class="tech-tags"><span>HTML</span><span>CSS</span><span>Responsive</span><span>Vercel</span></div><a href="https://cuellos-textiles-goar.vercel.app" target="_blank" rel="noopener noreferrer">Visitar sitio <i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                </article>
+
+                <article class="portfolio-page-card tilt-card" data-reveal>
+                    <div class="browser-mockup"><div class="browser-bar"><span></span><span></span><span></span><small>ejemplo-tienda-digital.vercel.app</small></div><img src="demo-tienda-online.png" alt="Demo de ventas online"></div>
+                    <div class="project-info"><small>Demo comercial</small><h3>Demo de Ventas Online</h3><p>Demo para mostrar catálogo, experiencia de compra y flujo de contacto comercial.</p><div class="tech-tags"><span>Node.js</span><span>JavaScript</span><span>HTML/CSS</span><span>Backend</span></div><a href="https://ejemplo-tienda-digital.vercel.app" target="_blank" rel="noopener noreferrer">Visitar sitio <i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                </article>
+
+                <article class="portfolio-page-card tilt-card" data-reveal>
+                    <div class="browser-mockup"><div class="browser-bar"><span></span><span></span><span></span><small>app privada / dashboard</small></div><img src="damaris-dashboard.png" alt="Sistema de control de ventas"></div>
+                    <div class="project-info"><small>App web privada</small><h3>Sistema de Control de Ventas</h3><p>Dashboard privado para ventas, gastos, ganancias, inventario y control del negocio.</p><div class="tech-tags"><span>Next.js</span><span>React</span><span>PWA</span><span>Dashboard</span></div><span class="private-label">Vista previa privada</span></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <div class="container quote-panel" data-reveal>
+                <div class="quote-copy">
+                    <span class="section-pill">Cotización personalizada</span>
+                    <h2>¿Quieres algo parecido para tu negocio?</h2>
+                    <p>Mándame tu idea y te digo qué tipo de proyecto te conviene: web, catálogo, panel, app o sistema a medida.</p>
+                </div>
+                <div class="quote-actions">
+                    <a class="btn btn-primary" href="https://wa.me/524451820808?text=Hola%2C%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20un%20proyecto." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Cotizar por WhatsApp</a>
+                    <a class="btn btn-ghost" href="index.html#contact">Ver contacto</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer"><div class="container footer-inner"><p>© 2026 Ingenix Hub.</p><a href="index.html">Inicio</a></div></footer>
+
+    <div class="mobile-action-bar" aria-label="Acciones rápidas"><a href="https://wa.me/524451820808?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20web." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Cotizar</a><a href="index.html#portfolio"><i class="fas fa-layer-group"></i> Proyectos</a></div>
+
+    <script>
+        const body = document.body;
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        const themeToggle = document.getElementById('theme-toggle');
+        const progressBar = document.getElementById('scroll-progress');
+        function setTheme(theme){ const dark = theme === 'dark'; body.classList.toggle('dark-mode', dark); themeToggle.querySelector('i').className = dark ? 'fas fa-sun' : 'fas fa-moon'; localStorage.setItem('ingenix-theme', theme); }
+        setTheme(localStorage.getItem('ingenix-theme') || 'light');
+        themeToggle.addEventListener('click', () => setTheme(body.classList.contains('dark-mode') ? 'light' : 'dark'));
+        function closeMenu(){ navLinks.classList.remove('open'); menuToggle.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); }
+        menuToggle.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); menuToggle.classList.toggle('open', open); menuToggle.setAttribute('aria-expanded', String(open)); });
+        document.querySelectorAll('.nav-item').forEach(link => link.addEventListener('click', closeMenu));
+        window.addEventListener('scroll', () => { const total = document.documentElement.scrollHeight - window.innerHeight; progressBar.style.width = (total > 0 ? window.scrollY / total * 100 : 0) + '%'; }, { passive: true });
+        const items = document.querySelectorAll('[data-reveal]');
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if ('IntersectionObserver' in window && !reduce) { const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: .15 }); items.forEach(i => obs.observe(i)); } else { items.forEach(i => i.classList.add('visible')); }
+    </script>
 </body>
-
 </html>
