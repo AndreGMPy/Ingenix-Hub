@@ -18,13 +18,36 @@
 
     <div class="intro-loader" id="intro-loader" aria-hidden="true">
         <div class="intro-grid"></div>
-        <div class="intro-brand">
-            <img src="logo_no_bg.png" alt="">
-            <span>Creando experiencias digitales</span>
+        <div class="intro-circuit circuit-one"></div>
+        <div class="intro-circuit circuit-two"></div>
+        <div class="boot-terminal" role="presentation">
+            <div class="terminal-topbar">
+                <span></span><span></span><span></span>
+                <small>ingenix://system/boot</small>
+            </div>
+            <div class="intro-logo-assembly">
+                <span class="assembly-ring ring-one"></span>
+                <span class="assembly-ring ring-two"></span>
+                <span class="assembly-beam"></span>
+                <img src="logo_no_bg.png" alt="">
+            </div>
+            <div class="boot-console">
+                <strong>INGENIX ENGINEERING SYSTEM</strong>
+                <p><span class="boot-prefix">&gt;</span> <span id="boot-line">Inicializando interfaz...</span><i class="typing-cursor"></i></p>
+                <div class="boot-status-row">
+                    <div class="matrix-loader" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <small id="boot-percent">00%</small>
+                </div>
+                <div class="boot-track"><span id="boot-progress"></span></div>
+                <button class="skip-intro" id="skip-intro" type="button">Saltar intro</button>
+            </div>
         </div>
     </div>
 
     <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor-spotlight" id="cursor-spotlight" aria-hidden="true"></div>
 
     <header class="site-header" id="site-header">
         <div class="top-ribbon">
@@ -64,7 +87,7 @@
 
             <div class="container hero-layout">
                 <div class="hero-copy" data-reveal>
-                    <span class="section-pill">Diseño web + desarrollo a la medida</span>
+                    <span class="section-pill">Diseño web</span>
                     <h1>Tu negocio puede verse como una marca grande desde el celular.</h1>
                     <p>Diseño páginas web, catálogos digitales, apps web y paneles administrables que se sienten modernos, cargan rápido y llevan a tus clientes directo a contactarte.</p>
                     <div class="hero-actions">
@@ -77,44 +100,53 @@
                             Ver trabajos
                         </a>
                     </div>
-                    <div class="hero-tags" aria-label="Soluciones principales">
-                        <span><i class="fas fa-globe" aria-hidden="true"></i> Webs</span>
-                        <span><i class="fas fa-store" aria-hidden="true"></i> Catálogos</span>
-                        <span><i class="fas fa-chart-line" aria-hidden="true"></i> Paneles</span>
+                    <div class="hero-tags phone-demo-controls" aria-label="Prueba la vista previa del teléfono">
+                        <button class="phone-mode active" type="button" data-phone-mode="web"><i class="fas fa-globe" aria-hidden="true"></i> Web</button>
+                        <button class="phone-mode" type="button" data-phone-mode="catalog"><i class="fas fa-store" aria-hidden="true"></i> Catálogo</button>
+                        <button class="phone-mode" type="button" data-phone-mode="panel"><i class="fas fa-chart-line" aria-hidden="true"></i> Panel</button>
                     </div>
                 </div>
 
-                <div class="hero-visual" data-reveal>
-                    <div class="phone-shell floating-device">
-                        <div class="phone-speaker"></div>
-                        <div class="phone-screen">
-                            <div class="mini-browser">
-                                <span></span><span></span><span></span>
-                            </div>
-                            <div class="mini-hero-card">
-                                <small>INGENIX HUB</small>
-                                <strong>Tu proyecto digital listo para vender</strong>
-                                <p>Web responsive · Catálogo · WhatsApp · Panel</p>
-                            </div>
-                            <div class="mini-stats">
-                                <div><strong>24/7</strong><span>Presencia</span></div>
-                                <div><strong>100%</strong><span>Responsive</span></div>
-                            </div>
-                            <div class="mini-list">
-                                <span></span><span></span><span></span>
+                <div class="hero-visual" id="hero-visual" data-reveal>
+                    <div class="phone-parallax-wrap" id="phone-parallax-wrap">
+                        <div class="phone-shell floating-device" id="interactive-phone">
+                            <div class="phone-speaker"></div>
+                            <div class="phone-screen">
+                                <div class="mini-browser">
+                                    <span></span><span></span><span></span>
+                                    <small id="phone-url">ingenixhub.com/web</small>
+                                </div>
+                                <div class="phone-live-status"><i></i><span>LIVE PREVIEW</span></div>
+                                <div class="mini-hero-card" id="phone-demo-card">
+                                    <small id="phone-kicker">PÁGINA WEB</small>
+                                    <strong id="phone-title">Tu negocio listo para recibir clientes</strong>
+                                    <p id="phone-copy">Diseño responsive · WhatsApp · SEO básico</p>
+                                </div>
+                                <div class="mini-stats">
+                                    <div><strong id="phone-stat-a">24/7</strong><span id="phone-label-a">Presencia</span></div>
+                                    <div><strong id="phone-stat-b">100%</strong><span id="phone-label-b">Responsive</span></div>
+                                </div>
+                                <div class="mini-list" aria-hidden="true">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="phone-data-stream" aria-hidden="true"><span></span><span></span><span></span></div>
                             </div>
                         </div>
                     </div>
 
                     <div class="orbit-card card-top">
                         <i class="fas fa-bolt" aria-hidden="true"></i>
-                        <span>Carga rápida</span>
+                        <span id="orbit-top-text">Carga rápida</span>
                     </div>
                     <div class="orbit-card card-bottom">
                         <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                        <span>Contacto directo</span>
+                        <span id="orbit-bottom-text">Contacto directo</span>
                     </div>
                     <div class="orbit-ring" aria-hidden="true"></div>
+                    <div class="engineering-hud hud-a"><span></span><small>UI SYSTEM</small><strong id="hud-state">READY</strong></div>
+                    <div class="engineering-hud hud-b"><span></span><small>RENDER</small><strong>60 FPS</strong></div>
+                    <div class="scan-line" aria-hidden="true"></div>
+                    <div class="hero-connectors" aria-hidden="true"><span></span><span></span><span></span></div>
                 </div>
             </div>
         </section>
@@ -130,28 +162,32 @@
         <section class="section services-section" id="services">
             <div class="container">
                 <div class="section-heading" data-reveal>
-                    <span class="section-pill">Qué podemos crear</span>
+                    <span class="section-pill">Servicios</span>
                     <h2>Soluciones digitales que se sienten hechas para tu negocio</h2>
                     <p>No se trata de llenar una página de efectos. Se trata de que tu cliente entienda, confíe y te contacte rápido.</p>
                 </div>
 
                 <div class="services-grid">
-                    <article class="service-card tilt-card" data-reveal>
+                    <article class="service-card tilt-card scan-card" data-reveal>
+                        <span class="card-code">01 / WEB</span>
                         <div class="service-icon"><i class="fas fa-window-maximize" aria-hidden="true"></i></div>
                         <h3>Páginas web profesionales</h3>
                         <p>Para negocios, marcas personales, talleres, estudios, consultorios o servicios que necesitan verse confiables.</p>
                     </article>
-                    <article class="service-card tilt-card" data-reveal>
+                    <article class="service-card tilt-card scan-card" data-reveal>
+                        <span class="card-code">02 / CAT</span>
                         <div class="service-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></div>
                         <h3>Catálogos digitales</h3>
                         <p>Presenta productos, menús, paquetes o servicios con categorías, fotos y botones directos a WhatsApp.</p>
                     </article>
-                    <article class="service-card tilt-card" data-reveal>
+                    <article class="service-card tilt-card scan-card" data-reveal>
+                        <span class="card-code">03 / PWA</span>
                         <div class="service-icon"><i class="fas fa-mobile-screen-button" aria-hidden="true"></i></div>
                         <h3>Apps web y PWA</h3>
                         <p>Sistemas que funcionan desde navegador y pueden sentirse como app en el celular del negocio.</p>
                     </article>
-                    <article class="service-card tilt-card" data-reveal>
+                    <article class="service-card tilt-card scan-card" data-reveal>
+                        <span class="card-code">04 / CMS</span>
                         <div class="service-icon"><i class="fas fa-gauge-high" aria-hidden="true"></i></div>
                         <h3>Paneles administrables</h3>
                         <p>Edita productos, precios, fotos, ventas, pedidos o contenido desde un panel privado.</p>
@@ -160,18 +196,102 @@
             </div>
         </section>
 
-        <section class="section wow-section">
+        <section class="section architecture-section" id="architecture">
+            <div class="container architecture-layout">
+                <div class="section-heading architecture-heading" data-reveal>
+                    <span class="section-pill">Ingeniería digital</span>
+                    <h2>No solo diseño: construyo sistemas que conectan cada parte de tu negocio</h2>
+                    <p>Toca cada módulo para ver cómo se integra una solución web profesional.</p>
+                </div>
+
+                <div class="system-blueprint" data-reveal>
+                    <div class="blueprint-grid" aria-hidden="true"></div>
+                    <svg class="system-lines" viewBox="0 0 1000 560" preserveAspectRatio="none" aria-hidden="true">
+                        <path class="line line-web" d="M500 280 L240 130" />
+                        <path class="line line-data" d="M500 280 L760 130" />
+                        <path class="line line-auto" d="M500 280 L240 430" />
+                        <path class="line line-mobile" d="M500 280 L760 430" />
+                        <g class="data-packets">
+                            <circle class="packet packet-web" r="7"><animateMotion dur="2.8s" repeatCount="indefinite" path="M500 280 L240 130" /></circle>
+                            <circle class="packet packet-data" r="7"><animateMotion begin=".5s" dur="3.1s" repeatCount="indefinite" path="M500 280 L760 130" /></circle>
+                            <circle class="packet packet-auto" r="7"><animateMotion begin="1s" dur="3.3s" repeatCount="indefinite" path="M500 280 L240 430" /></circle>
+                            <circle class="packet packet-mobile" r="7"><animateMotion begin="1.5s" dur="2.9s" repeatCount="indefinite" path="M500 280 L760 430" /></circle>
+                        </g>
+                    </svg>
+
+                    <button class="system-node active node-web" data-system="web" type="button">
+                        <i class="fas fa-window-maximize"></i><span>Interfaz</span><small>Lo que ve tu cliente</small>
+                    </button>
+                    <button class="system-node node-data" data-system="data" type="button">
+                        <i class="fas fa-database"></i><span>Datos</span><small>Información organizada</small>
+                    </button>
+                    <button class="system-node node-auto" data-system="auto" type="button">
+                        <i class="fas fa-gears"></i><span>Automatización</span><small>Procesos más rápidos</small>
+                    </button>
+                    <button class="system-node node-mobile" data-system="mobile" type="button">
+                        <i class="fas fa-mobile-screen"></i><span>Mobile</span><small>Experiencia desde teléfono</small>
+                    </button>
+
+                    <div class="system-core">
+                        <div class="core-rings" aria-hidden="true"><span></span><span></span><span></span></div>
+                        <img src="logo_no_bg.png" alt="Ingenix Hub">
+                        <small>SISTEMA CENTRAL</small>
+                    </div>
+
+                    <div class="system-detail" id="system-detail">
+                        <span class="detail-status"><i></i> Módulo activo</span>
+                        <h3 id="system-title">Interfaz que convierte visitas en contactos</h3>
+                        <p id="system-copy">Diseño claro, jerarquía visual y llamados a la acción pensados para que el usuario entienda rápido qué haces y cómo contactarte.</p>
+                        <div class="detail-metrics" id="system-metrics"><span>Responsive</span><span>Accesible</span><span>Rápida</span></div>
+                        <div class="system-console" aria-live="polite">
+                            <div class="console-bar"><span></span><span></span><span></span><small>module-monitor.log</small></div>
+                            <code id="system-log">GET /interface <b>200 OK</b> · latency 34ms</code>
+                            <div class="console-meter"><span id="system-meter"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section wow-section" id="experience-lab">
             <div class="container wow-grid">
                 <div class="wow-copy" data-reveal>
-                    <span class="section-pill">Experiencia visual</span>
-                    <h2>Animaciones que llaman la atención sin hacer lenta la página</h2>
-                    <p>La página usa movimiento sutil, profundidad 3D, revelados al hacer scroll y detalles interactivos para que se sienta diferente desde el primer segundo.</p>
+                    <span class="section-pill">Laboratorio interactivo</span>
+                    <h2>Prueba cómo se siente una interfaz construida con intención</h2>
+                    <p>Selecciona un efecto. El panel cambia en tiempo real para mostrar profundidad, respuesta táctil, carga y movimiento optimizado.</p>
+                    <div class="wow-stack" aria-label="Demostraciones interactivas">
+                        <button class="stack-card lab-control active" type="button" data-lab="depth"><i class="fas fa-cube" aria-hidden="true"></i><span>Profundidad 3D</span></button>
+                        <button class="stack-card lab-control" type="button" data-lab="boot"><i class="fas fa-terminal" aria-hidden="true"></i><span>Entrada de sistema</span></button>
+                        <button class="stack-card lab-control" type="button" data-lab="touch"><i class="fas fa-hand-pointer" aria-hidden="true"></i><span>Respuesta táctil</span></button>
+                        <button class="stack-card lab-control" type="button" data-lab="performance"><i class="fas fa-gauge-high" aria-hidden="true"></i><span>Rendimiento</span></button>
+                    </div>
                 </div>
-                <div class="wow-stack" data-reveal aria-label="Características de experiencia">
-                    <div class="stack-card"><i class="fas fa-cube" aria-hidden="true"></i><span>Tarjetas 3D</span></div>
-                    <div class="stack-card"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i><span>Entrada animada</span></div>
-                    <div class="stack-card"><i class="fas fa-hand-pointer" aria-hidden="true"></i><span>Interacciones suaves</span></div>
-                    <div class="stack-card"><i class="fas fa-mobile" aria-hidden="true"></i><span>Responsive real</span></div>
+
+                <div class="experience-console" id="experience-console" data-mode="depth" data-reveal>
+                    <div class="experience-toolbar">
+                        <span></span><span></span><span></span>
+                        <small>ingenix://experience-lab</small>
+                        <b><i></i> ONLINE</b>
+                    </div>
+                    <div class="experience-stage">
+                        <div class="lab-orbit orbit-a"></div>
+                        <div class="lab-orbit orbit-b"></div>
+                        <div class="lab-demo-card" id="lab-demo-card">
+                            <small id="lab-kicker">DEPTH_ENGINE</small>
+                            <strong id="lab-title">Interfaz con profundidad real</strong>
+                            <p id="lab-copy">Capas, perspectiva y sombras que reaccionan sin sacrificar claridad.</p>
+                            <div class="lab-code-stream" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="lab-matrix" aria-hidden="true">
+                            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <div class="lab-readouts">
+                            <div><small>RENDER</small><strong id="lab-readout-a">60 FPS</strong></div>
+                            <div><small>INPUT</small><strong id="lab-readout-b">8 MS</strong></div>
+                            <div><small>STATE</small><strong id="lab-readout-c">STABLE</strong></div>
+                        </div>
+                    </div>
+                    <div class="experience-log"><span>&gt;</span><code id="experience-log">depth_engine.initialize() → ready</code><i></i></div>
                 </div>
             </div>
         </section>
@@ -179,7 +299,7 @@
         <section class="section portfolio-section" id="portfolio">
             <div class="container">
                 <div class="section-heading" data-reveal>
-                    <span class="section-pill">Portafolio real</span>
+                    <span class="section-pill">Portafolio</span>
                     <h2>Proyectos con estilo, estructura y contacto claro</h2>
                     <p>Un carrusel 3D con algunos trabajos desarrollados para negocios y proyectos reales.</p>
                 </div>
@@ -274,6 +394,17 @@
                     <button type="button" aria-label="Ver Sistema de Control de Ventas"></button>
                 </div>
 
+                <div class="project-inspector" id="project-inspector" data-reveal>
+                    <div class="inspector-status"><i></i><span>PROJECT INSPECTOR</span></div>
+                    <div class="inspector-copy">
+                        <small id="inspector-index">PROYECTO 01 / 05</small>
+                        <strong id="inspector-title">TextiBajío</strong>
+                        <p id="inspector-copy">Plataforma con catálogo, perfiles y contacto directo para digitalizar negocios textiles.</p>
+                    </div>
+                    <div class="inspector-tech" id="inspector-tech"><span>Firebase</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                    <div class="inspector-progress"><span id="inspector-progress"></span></div>
+                </div>
+
                 <div class="center-actions" data-reveal>
                     <a class="btn btn-ghost" href="portafolio.html">Ver portafolio completo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
@@ -316,7 +447,7 @@
         <section class="quote-section" id="quote">
             <div class="container quote-panel" data-reveal>
                 <div class="quote-copy">
-                    <span class="section-pill">Cotización personalizada</span>
+                    <span class="section-pill">Cotización</span>
                     <h2>No vendo paquetes genéricos. Te cotizo lo que tu negocio realmente necesita.</h2>
                     <p>Así evitas pagar por funciones que no usarás y tienes una propuesta más clara para tu presupuesto, etapa y objetivo.</p>
                 </div>
@@ -336,7 +467,7 @@
         <section class="section faq-section" id="faq">
             <div class="container faq-layout">
                 <div class="section-heading section-heading-left" data-reveal>
-                    <span class="section-pill">Dudas comunes</span>
+                    <span class="section-pill">FAQ</span>
                     <h2>Antes de empezar</h2>
                     <p>Respuestas rápidas para que sepas cómo se trabaja una cotización personalizada.</p>
                 </div>
@@ -391,7 +522,7 @@
 
                     <div class="calendar-card" data-reveal>
                         <div class="calendar-placeholder">
-                            <span class="loader-dot"></span>
+                            <div class="calendar-matrix" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
                             <strong>Agenda una llamada de diagnóstico</strong>
                             <p>Si el calendario tarda en cargar, puedes abrir Calendly directamente.</p>
                             <a class="btn btn-ghost" href="https://calendly.com/andregordillo9/30min" target="_blank" rel="noopener noreferrer">Abrir Calendly</a>
@@ -410,11 +541,6 @@
         </div>
     </footer>
 
-    <div class="mobile-action-bar" aria-label="Acciones rápidas">
-        <a href="https://wa.me/524451820808?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20web." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Cotizar</a>
-        <a href="#portfolio"><i class="fas fa-layer-group" aria-hidden="true"></i> Proyectos</a>
-    </div>
-
     <a class="whatsapp-float" href="https://wa.me/524451820808?text=Hola%2C%20quiero%20un%20diagn%C3%B3stico%20para%20mi%20proyecto%20web." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
@@ -428,17 +554,58 @@
         const progressBar = document.getElementById('scroll-progress');
         const intro = document.getElementById('intro-loader');
 
-        window.addEventListener('load', () => {
-            window.setTimeout(() => intro?.classList.add('hide'), 900);
-        });
+        const bootLine = document.getElementById('boot-line');
+        const bootPercent = document.getElementById('boot-percent');
+        const bootProgress = document.getElementById('boot-progress');
+        const skipIntro = document.getElementById('skip-intro');
+        const bootMessages = [
+            { text: 'Inicializando interfaz...', value: 18 },
+            { text: 'Conectando módulos...', value: 42 },
+            { text: 'Verificando responsive...', value: 68 },
+            { text: 'Optimizando experiencia móvil...', value: 88 },
+            { text: 'Sistema listo.', value: 100 }
+        ];
+
+        function closeIntro() {
+            intro?.classList.add('hide');
+            document.documentElement.classList.remove('intro-active');
+            try { sessionStorage.setItem('ingenix-intro-seen', '1'); } catch (_) {}
+        }
+
+        function runIntro() {
+            let step = 0;
+            const updateBoot = () => {
+                const state = bootMessages[step];
+                if (bootLine) bootLine.textContent = state.text;
+                if (bootPercent) bootPercent.textContent = String(state.value).padStart(2, '0') + '%';
+                if (bootProgress) bootProgress.style.width = state.value + '%';
+                step += 1;
+                if (step < bootMessages.length) window.setTimeout(updateBoot, 230);
+                else window.setTimeout(closeIntro, 360);
+            };
+            updateBoot();
+        }
+
+        let introSeen = false;
+        try { introSeen = sessionStorage.getItem('ingenix-intro-seen') === '1'; } catch (_) {}
+        if (introSeen || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            intro?.classList.add('skip-animation');
+            window.setTimeout(closeIntro, 80);
+        } else {
+            document.documentElement.classList.add('intro-active');
+            window.addEventListener('load', runIntro, { once: true });
+        }
+        skipIntro?.addEventListener('click', closeIntro);
 
         function setTheme(theme) {
             const dark = theme === 'dark';
             body.classList.toggle('dark-mode', dark);
             themeToggle.querySelector('i').className = dark ? 'fas fa-sun' : 'fas fa-moon';
-            localStorage.setItem('ingenix-theme', theme);
+            try { localStorage.setItem('ingenix-theme', theme); } catch (_) {}
         }
-        setTheme(localStorage.getItem('ingenix-theme') || 'light');
+        let savedTheme = 'light';
+        try { savedTheme = localStorage.getItem('ingenix-theme') || 'light'; } catch (_) {}
+        setTheme(savedTheme);
         themeToggle.addEventListener('click', () => setTheme(body.classList.contains('dark-mode') ? 'light' : 'dark'));
 
         function closeMenu() {
@@ -480,7 +647,7 @@
             revealItems.forEach(item => item.classList.add('visible'));
         }
 
-        function createCarousel(stageId, prevId, nextId, dotsId) {
+        function createCarousel(stageId, prevId, nextId, dotsId, onChange) {
             const stage = document.getElementById(stageId);
             if (!stage) return;
             const cards = Array.from(stage.querySelectorAll('.carousel-card'));
@@ -512,6 +679,7 @@
                     dot.classList.toggle('active', i === current);
                     dot.setAttribute('aria-current', i === current ? 'true' : 'false');
                 });
+                if (typeof onChange === 'function') onChange(cards[current], current, total);
             }
 
             prev?.addEventListener('click', () => update(current - 1));
@@ -535,7 +703,210 @@
             }, { passive: true });
             update(0);
         }
-        createCarousel('portfolio-stage', 'portfolio-prev', 'portfolio-next', 'portfolio-dots');
+        const inspectorTitle = document.getElementById('inspector-title');
+        const inspectorCopy = document.getElementById('inspector-copy');
+        const inspectorTech = document.getElementById('inspector-tech');
+        const inspectorIndex = document.getElementById('inspector-index');
+        const inspectorProgress = document.getElementById('inspector-progress');
+        createCarousel('portfolio-stage', 'portfolio-prev', 'portfolio-next', 'portfolio-dots', (card, current, total) => {
+            const title = card.querySelector('.project-info h3')?.textContent?.trim() || 'Proyecto';
+            const copy = card.querySelector('.project-info p')?.textContent?.trim() || '';
+            const tech = Array.from(card.querySelectorAll('.tech-tags span')).map(item => item.textContent.trim());
+            if (inspectorTitle) inspectorTitle.textContent = title;
+            if (inspectorCopy) inspectorCopy.textContent = copy;
+            if (inspectorTech) inspectorTech.innerHTML = tech.map(item => `<span>${item}</span>`).join('');
+            if (inspectorIndex) inspectorIndex.textContent = `PROYECTO ${String(current + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+            if (inspectorProgress) {
+                inspectorProgress.style.animation = 'none';
+                void inspectorProgress.offsetWidth;
+                inspectorProgress.style.animation = '';
+            }
+        });
+
+
+        // --- Diagrama interactivo de ingeniería ---
+        const systemContent = {
+            web: {
+                title: 'Interfaz que convierte visitas en contactos',
+                copy: 'Diseño claro, jerarquía visual y llamados a la acción pensados para que el usuario entienda rápido qué haces y cómo contactarte.',
+                metrics: ['Responsive', 'Accesible', 'Rápida']
+            },
+            data: {
+                title: 'Datos organizados para tomar mejores decisiones',
+                copy: 'Productos, clientes, pedidos o contenido quedan estructurados para que puedas consultar, editar y crecer sin perder control.',
+                metrics: ['Firebase', 'Base de datos', 'Escalable']
+            },
+            auto: {
+                title: 'Procesos automáticos que ahorran trabajo',
+                copy: 'Formularios, notificaciones, paneles y flujos conectados reducen tareas repetitivas y mantienen la operación más ordenada.',
+                metrics: ['Integraciones', 'Notificaciones', 'Flujos']
+            },
+            mobile: {
+                title: 'Una experiencia creada primero para el celular',
+                copy: 'Botones cómodos, navegación rápida y contenido legible para el dispositivo desde el que la mayoría de tus clientes te visita.',
+                metrics: ['Mobile-first', 'PWA', 'Touch friendly']
+            }
+        };
+        const systemNodes = document.querySelectorAll('.system-node');
+        const systemTitle = document.getElementById('system-title');
+        const systemCopy = document.getElementById('system-copy');
+        const systemMetrics = document.getElementById('system-metrics');
+        const systemLog = document.getElementById('system-log');
+        const systemMeter = document.getElementById('system-meter');
+        const blueprint = document.querySelector('.system-blueprint');
+        const systemLogs = {
+            web: 'GET /interface <b>200 OK</b> · latency 34ms',
+            data: 'QUERY /business-data <b>SYNCED</b> · 12ms',
+            auto: 'RUN /workflow <b>COMPLETED</b> · 4 tasks',
+            mobile: 'AUDIT /viewport <b>PASS</b> · touch ready'
+        };
+        const meterValues = { web: 86, data: 74, auto: 91, mobile: 96 };
+        systemNodes.forEach(node => node.addEventListener('click', () => {
+            const key = node.dataset.system;
+            const data = systemContent[key];
+            systemNodes.forEach(item => item.classList.toggle('active', item === node));
+            blueprint?.setAttribute('data-active', key);
+            if (systemTitle) systemTitle.textContent = data.title;
+            if (systemCopy) systemCopy.textContent = data.copy;
+            if (systemMetrics) systemMetrics.innerHTML = data.metrics.map(item => `<span>${item}</span>`).join('');
+            if (systemLog) systemLog.innerHTML = systemLogs[key];
+            if (systemMeter) systemMeter.style.width = meterValues[key] + '%';
+            document.getElementById('system-detail')?.animate([
+                { opacity: .35, filter: 'blur(3px)' },
+                { opacity: 1, filter: 'blur(0)' }
+            ], { duration: 260, easing: 'cubic-bezier(.2,.8,.2,1)' });
+        }));
+
+        // Spotlight del cursor, solo en escritorio
+        const spotlight = document.getElementById('cursor-spotlight');
+        if (spotlight && window.matchMedia('(pointer: fine)').matches && !reducedMotion) {
+            window.addEventListener('pointermove', event => {
+                spotlight.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
+            }, { passive: true });
+        }
+
+        // Ripple de ingeniería en botones
+        document.querySelectorAll('.btn, .system-node').forEach(button => {
+            button.addEventListener('pointerdown', event => {
+                const rect = button.getBoundingClientRect();
+                const ripple = document.createElement('span');
+                ripple.className = 'click-ripple';
+                ripple.style.left = `${event.clientX - rect.left}px`;
+                ripple.style.top = `${event.clientY - rect.top}px`;
+                button.appendChild(ripple);
+                ripple.addEventListener('animationend', () => ripple.remove());
+            });
+        });
+
+
+        // --- Vista previa interactiva dentro del teléfono ---
+        const phoneModes = {
+            web: {
+                url: 'ingenixhub.com/web', kicker: 'PÁGINA WEB', title: 'Tu negocio listo para recibir clientes',
+                copy: 'Diseño responsive · WhatsApp · SEO básico', statA: '24/7', labelA: 'Presencia', statB: '100%', labelB: 'Responsive',
+                top: 'Carga rápida', bottom: 'Contacto directo', hud: 'READY'
+            },
+            catalog: {
+                url: 'ingenixhub.com/catalogo', kicker: 'CATÁLOGO DIGITAL', title: 'Productos ordenados y fáciles de consultar',
+                copy: 'Categorías · Fotos · Consultas por WhatsApp', statA: '+40', labelA: 'Elementos', statB: '1 CLIC', labelB: 'Contacto',
+                top: 'Filtros claros', bottom: 'Pedido rápido', hud: 'SYNCED'
+            },
+            panel: {
+                url: 'app.ingenixhub.com/panel', kicker: 'PANEL PRIVADO', title: 'Controla contenido y operación desde un solo lugar',
+                copy: 'Productos · Ventas · Inventario · Reportes', statA: 'LIVE', labelA: 'Datos', statB: 'SECURE', labelB: 'Acceso',
+                top: 'Datos en vivo', bottom: 'Control privado', hud: 'ONLINE'
+            }
+        };
+        const phoneFields = {
+            url: document.getElementById('phone-url'), kicker: document.getElementById('phone-kicker'), title: document.getElementById('phone-title'),
+            copy: document.getElementById('phone-copy'), statA: document.getElementById('phone-stat-a'), labelA: document.getElementById('phone-label-a'),
+            statB: document.getElementById('phone-stat-b'), labelB: document.getElementById('phone-label-b'), top: document.getElementById('orbit-top-text'),
+            bottom: document.getElementById('orbit-bottom-text'), hud: document.getElementById('hud-state')
+        };
+        const phoneDemoCard = document.getElementById('phone-demo-card');
+        document.querySelectorAll('.phone-mode').forEach(button => button.addEventListener('click', () => {
+            const mode = phoneModes[button.dataset.phoneMode];
+            document.querySelectorAll('.phone-mode').forEach(item => item.classList.toggle('active', item === button));
+            phoneDemoCard?.classList.add('switching');
+            window.setTimeout(() => {
+                Object.entries(phoneFields).forEach(([key, element]) => { if (element) element.textContent = mode[key]; });
+                phoneDemoCard?.classList.remove('switching');
+            }, 150);
+        }));
+
+        // Parallax del teléfono: cursor en escritorio, scroll en teléfono.
+        const heroVisual = document.getElementById('hero-visual');
+        const phoneParallax = document.getElementById('phone-parallax-wrap');
+        if (heroVisual && phoneParallax && !reducedMotion) {
+            if (window.matchMedia('(pointer: fine)').matches) {
+                heroVisual.addEventListener('pointermove', event => {
+                    const rect = heroVisual.getBoundingClientRect();
+                    const x = (event.clientX - rect.left) / rect.width - .5;
+                    const y = (event.clientY - rect.top) / rect.height - .5;
+                    phoneParallax.style.setProperty('--phone-rx', `${(-y * 3.6).toFixed(2)}deg`);
+                    phoneParallax.style.setProperty('--phone-ry', `${(x * 4.8).toFixed(2)}deg`);
+                    phoneParallax.style.setProperty('--phone-tx', `${(x * 5).toFixed(2)}px`);
+                    phoneParallax.style.setProperty('--phone-ty', `${(y * 5).toFixed(2)}px`);
+                });
+                heroVisual.addEventListener('pointerleave', () => {
+                    ['--phone-rx','--phone-ry'].forEach(v => phoneParallax.style.setProperty(v, '0deg'));
+                    ['--phone-tx','--phone-ty'].forEach(v => phoneParallax.style.setProperty(v, '0px'));
+                });
+            } else {
+                const updatePhoneScroll = () => {
+                    const rect = heroVisual.getBoundingClientRect();
+                    const center = rect.top + rect.height / 2;
+                    const viewportCenter = window.innerHeight / 2;
+                    const ratio = Math.max(-1, Math.min(1, (center - viewportCenter) / window.innerHeight));
+                    phoneParallax.style.setProperty('--phone-rx', `${(ratio * 1.6).toFixed(2)}deg`);
+                    phoneParallax.style.setProperty('--phone-ry', `${(-ratio * 1.1).toFixed(2)}deg`);
+                };
+                window.addEventListener('scroll', updatePhoneScroll, { passive: true });
+                updatePhoneScroll();
+            }
+        }
+
+        // Laboratorio de experiencias.
+        const labModes = {
+            depth: { kicker: 'DEPTH_ENGINE', title: 'Interfaz con profundidad real', copy: 'Capas, perspectiva y sombras que reaccionan sin sacrificar claridad.', a: '60 FPS', b: '8 MS', c: 'STABLE', log: 'depth_engine.initialize() → ready' },
+            boot: { kicker: 'BOOT_SEQUENCE', title: 'Una entrada que comunica ingeniería', copy: 'Estados de carga con propósito, progreso visible y una transición rápida al contenido.', a: '1.2 S', b: '5 STEPS', c: 'READY', log: 'boot_sequence.complete() → content mounted' },
+            touch: { kicker: 'TOUCH_FEEDBACK', title: 'Cada toque responde de inmediato', copy: 'Ondas, cambios de estado y microinteracciones que hacen sentir la interfaz viva.', a: '1 TAP', b: '12 MS', c: 'ACTIVE', log: 'pointer_event.dispatch() → feedback rendered' },
+            performance: { kicker: 'PERFORMANCE_CORE', title: 'Movimiento optimizado para no hacer lenta la web', copy: 'Animaciones basadas en transform y opacity, menos trabajo para el navegador y adaptación a cada dispositivo.', a: 'A+', b: 'GPU', c: 'OPTIMIZED', log: 'performance_audit.run() → no blocking animation' }
+        };
+        const experienceConsole = document.getElementById('experience-console');
+        const labDemoCard = document.getElementById('lab-demo-card');
+        const labElements = {
+            kicker: document.getElementById('lab-kicker'), title: document.getElementById('lab-title'), copy: document.getElementById('lab-copy'),
+            a: document.getElementById('lab-readout-a'), b: document.getElementById('lab-readout-b'), c: document.getElementById('lab-readout-c'), log: document.getElementById('experience-log')
+        };
+        document.querySelectorAll('.lab-control').forEach(control => control.addEventListener('click', () => {
+            const key = control.dataset.lab;
+            const data = labModes[key];
+            document.querySelectorAll('.lab-control').forEach(item => item.classList.toggle('active', item === control));
+            experienceConsole?.setAttribute('data-mode', key);
+            labDemoCard?.classList.add('switching');
+            window.setTimeout(() => {
+                Object.entries(labElements).forEach(([field, element]) => { if (element) element.textContent = data[field]; });
+                labDemoCard?.classList.remove('switching');
+            }, 140);
+        }));
+
+        // Botones magnéticos en escritorio.
+        if (!reducedMotion && window.matchMedia('(pointer: fine)').matches) {
+            document.querySelectorAll('.magnetic, .btn').forEach(button => {
+                button.addEventListener('pointermove', event => {
+                    const rect = button.getBoundingClientRect();
+                    const x = event.clientX - rect.left - rect.width / 2;
+                    const y = event.clientY - rect.top - rect.height / 2;
+                    button.style.setProperty('--magnetic-x', `${(x * .12).toFixed(2)}px`);
+                    button.style.setProperty('--magnetic-y', `${(y * .16).toFixed(2)}px`);
+                });
+                button.addEventListener('pointerleave', () => {
+                    button.style.setProperty('--magnetic-x', '0px');
+                    button.style.setProperty('--magnetic-y', '0px');
+                });
+            });
+        }
 
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('toggle', () => {
@@ -584,8 +955,10 @@
                 r: Math.random() * 1.8 + 0.8
             }));
         }
+        const saveData = Boolean(navigator.connection && navigator.connection.saveData);
+        const lowPowerDevice = Boolean(navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
         function animateCanvas() {
-            if (!canvas || !ctx || reducedMotion) return;
+            if (!canvas || !ctx || reducedMotion || saveData || lowPowerDevice) return;
             ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
             const isDark = body.classList.contains('dark-mode');
             ctx.fillStyle = isDark ? 'rgba(96,165,250,.38)' : 'rgba(29,78,216,.28)';
