@@ -834,36 +834,33 @@
             }, 150);
         }));
 
-        // Parallax del teléfono: cursor en escritorio, scroll en teléfono.
+        // Parallax del teléfono solo en escritorio con cursor preciso.
+        // En iPhone/iPad se desactiva para evitar parpadeos y desaparición
+        // de capas internas provocados por transformaciones 3D durante el scroll.
         const heroVisual = document.getElementById('hero-visual');
         const phoneParallax = document.getElementById('phone-parallax-wrap');
-        if (heroVisual && phoneParallax && !reducedMotion) {
-            if (window.matchMedia('(pointer: fine)').matches) {
-                heroVisual.addEventListener('pointermove', event => {
-                    const rect = heroVisual.getBoundingClientRect();
-                    const x = (event.clientX - rect.left) / rect.width - .5;
-                    const y = (event.clientY - rect.top) / rect.height - .5;
-                    phoneParallax.style.setProperty('--phone-rx', `${(-y * 3.6).toFixed(2)}deg`);
-                    phoneParallax.style.setProperty('--phone-ry', `${(x * 4.8).toFixed(2)}deg`);
-                    phoneParallax.style.setProperty('--phone-tx', `${(x * 5).toFixed(2)}px`);
-                    phoneParallax.style.setProperty('--phone-ty', `${(y * 5).toFixed(2)}px`);
-                });
-                heroVisual.addEventListener('pointerleave', () => {
-                    ['--phone-rx','--phone-ry'].forEach(v => phoneParallax.style.setProperty(v, '0deg'));
-                    ['--phone-tx','--phone-ty'].forEach(v => phoneParallax.style.setProperty(v, '0px'));
-                });
-            } else {
-                const updatePhoneScroll = () => {
-                    const rect = heroVisual.getBoundingClientRect();
-                    const center = rect.top + rect.height / 2;
-                    const viewportCenter = window.innerHeight / 2;
-                    const ratio = Math.max(-1, Math.min(1, (center - viewportCenter) / window.innerHeight));
-                    phoneParallax.style.setProperty('--phone-rx', `${(ratio * 1.6).toFixed(2)}deg`);
-                    phoneParallax.style.setProperty('--phone-ry', `${(-ratio * 1.1).toFixed(2)}deg`);
-                };
-                window.addEventListener('scroll', updatePhoneScroll, { passive: true });
-                updatePhoneScroll();
-            }
+        const desktopFinePointer = window.matchMedia('(pointer: fine) and (min-width: 701px)').matches;
+
+        if (heroVisual && phoneParallax && !reducedMotion && desktopFinePointer) {
+            heroVisual.addEventListener('pointermove', event => {
+                const rect = heroVisual.getBoundingClientRect();
+                const x = (event.clientX - rect.left) / rect.width - .5;
+                const y = (event.clientY - rect.top) / rect.height - .5;
+                phoneParallax.style.setProperty('--phone-rx', `${(-y * 3.6).toFixed(2)}deg`);
+                phoneParallax.style.setProperty('--phone-ry', `${(x * 4.8).toFixed(2)}deg`);
+                phoneParallax.style.setProperty('--phone-tx', `${(x * 5).toFixed(2)}px`);
+                phoneParallax.style.setProperty('--phone-ty', `${(y * 5).toFixed(2)}px`);
+            });
+
+            heroVisual.addEventListener('pointerleave', () => {
+                ['--phone-rx','--phone-ry'].forEach(v => phoneParallax.style.setProperty(v, '0deg'));
+                ['--phone-tx','--phone-ty'].forEach(v => phoneParallax.style.setProperty(v, '0px'));
+            });
+        } else if (phoneParallax) {
+            phoneParallax.style.setProperty('--phone-rx', '0deg');
+            phoneParallax.style.setProperty('--phone-ry', '0deg');
+            phoneParallax.style.setProperty('--phone-tx', '0px');
+            phoneParallax.style.setProperty('--phone-ty', '0px');
         }
 
         // Laboratorio de experiencias.
