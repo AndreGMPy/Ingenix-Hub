@@ -2500,3 +2500,66 @@ body.dark-mode .system-core img {
         z-index: 8;
     }
 }
+
+/* ==========================================================
+   ESTABILIDAD iOS / SAFARI MÓVIL
+   Evita que el contenido interno del teléfono desaparezca al
+   hacer scroll por fallos de repintado con transformaciones 3D.
+   ========================================================== */
+@media (max-width: 700px), (hover: none) and (pointer: coarse) {
+    .phone-parallax-wrap {
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+        transform-style: flat !important;
+        perspective: none !important;
+        will-change: auto !important;
+    }
+
+    .phone-shell,
+    .phone-shell.floating-device {
+        transform: none !important;
+        transform-style: flat !important;
+        backface-visibility: visible !important;
+        -webkit-backface-visibility: visible !important;
+        will-change: auto !important;
+    }
+
+    .phone-screen {
+        isolation: isolate;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        backface-visibility: visible;
+        -webkit-backface-visibility: visible;
+    }
+
+    .mini-browser,
+    .phone-live-status,
+    .mini-hero-card,
+    .mini-stats,
+    .mini-list {
+        position: relative;
+        z-index: 4;
+        opacity: 1;
+        visibility: visible;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        backface-visibility: visible;
+        -webkit-backface-visibility: visible;
+    }
+
+    .phone-data-stream {
+        z-index: 1;
+    }
+
+    .phone-data-stream span,
+    .scan-line {
+        animation: none !important;
+    }
+
+    .mini-hero-card.switching {
+        opacity: 1;
+        filter: none;
+        transform: none;
+    }
+}
