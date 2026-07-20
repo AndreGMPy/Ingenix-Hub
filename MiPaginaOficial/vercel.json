@@ -1,4 +1,6 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": ".",
   "functions": {
     "api/chat.js": {
       "maxDuration": 20
