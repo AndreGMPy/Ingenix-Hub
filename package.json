@@ -1,9 +1,0 @@
-{
-  "name": "ingenix-hub-chatbot-nix",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Sitio estático de Ingenix Hub con chatbot Nix conectado a Gemini mediante una función serverless.",
-  "engines": {
-    "node": ">=20"
-  }
-}
