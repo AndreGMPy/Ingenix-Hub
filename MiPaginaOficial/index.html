@@ -541,9 +541,98 @@
         </div>
     </footer>
 
+    <!-- Mascota Ingenix: animación PixVerse con fondo procesado, se reproduce una sola vez -->
+    <button class="mascot-dock" id="nix-chat-trigger" type="button" aria-label="Abrir chat con Nix" aria-controls="nix-chat" aria-expanded="false">
+        <div class="mascot-dock-glow"></div>
+        <video
+            class="mascot-dock-video"
+            autoplay
+            muted
+            playsinline
+            preload="auto"
+            poster="public/mascota-ingenix/mascota-poster.webp"
+            disablepictureinpicture
+        >
+            <source src="public/mascota-ingenix/mascota-ingenix.webm" type="video/webm; codecs=vp9">
+        </video>
+        <img
+            class="mascot-dock-final"
+            src="public/mascota-ingenix/mascota-final.webp"
+            alt=""
+            decoding="async"
+        >
+        <div class="mascot-dock-label"><span></span>IA activada</div>
+    </button>
+
+    <!-- Chatbot Nix: se abre al tocar la mascota y consulta Gemini desde /api/chat -->
+    <div class="nix-chat-backdrop" id="nix-chat-backdrop" aria-hidden="true"></div>
+    <aside class="nix-chat" id="nix-chat" role="dialog" aria-modal="false" aria-labelledby="nix-chat-title" aria-hidden="true">
+        <header class="nix-chat-header">
+            <div class="nix-chat-identity">
+                <span class="nix-avatar" aria-hidden="true">
+                    <img src="public/mascota-ingenix/mascota-final.webp" alt="">
+                </span>
+                <span>
+                    <strong id="nix-chat-title">Nix</strong>
+                    <small><i></i> Asistente IA de Ingenix Hub</small>
+                </span>
+            </div>
+            <button class="nix-chat-close" id="nix-chat-close" type="button" aria-label="Cerrar chat">
+                <i class="fas fa-xmark" aria-hidden="true"></i>
+            </button>
+        </header>
+
+        <div class="nix-chat-intro">
+            Puedo orientarte sobre páginas web, catálogos, apps, paneles y automatizaciones con IA.
+        </div>
+
+        <div class="nix-chat-messages" id="nix-chat-messages" aria-live="polite" aria-label="Conversación con Nix"></div>
+
+        <div class="nix-chat-quick" id="nix-chat-quick" aria-label="Preguntas rápidas">
+            <button type="button" data-nix-prompt="Quiero una página web para mi negocio">Página web</button>
+            <button type="button" data-nix-prompt="Necesito una app o sistema web">App o sistema</button>
+            <button type="button" data-nix-prompt="Quiero automatizar un proceso con inteligencia artificial">Automatización IA</button>
+            <button type="button" data-nix-prompt="Ayúdame a cotizar mi proyecto">Cotizar proyecto</button>
+        </div>
+
+        <form class="nix-chat-form" id="nix-chat-form">
+            <label class="sr-only" for="nix-chat-input">Escribe tu mensaje</label>
+            <textarea id="nix-chat-input" name="message" rows="1" maxlength="800" placeholder="Cuéntame qué quieres crear…" autocomplete="off" required></textarea>
+            <button id="nix-chat-send" type="submit" aria-label="Enviar mensaje">
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
+            </button>
+        </form>
+
+        <footer class="nix-chat-footer">
+            <a id="nix-chat-whatsapp" href="https://wa.me/524451820808?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20con%20Ingenix%20Hub." target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                Continuar por WhatsApp
+            </a>
+            <small>Nix es una IA y puede equivocarse. No compartas datos sensibles.</small>
+        </footer>
+    </aside>
+
+
     <a class="whatsapp-float" href="https://wa.me/524451820808?text=Hola%2C%20quiero%20un%20diagn%C3%B3stico%20para%20mi%20proyecto%20web." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
+
+
+    <script>
+        document.querySelectorAll('.mascot-dock').forEach((dock) => {
+            const video = dock.querySelector('.mascot-dock-video');
+            if (!video) return;
+
+            const finishMascot = () => dock.classList.add('is-finished');
+            video.addEventListener('ended', finishMascot, { once: true });
+            video.addEventListener('error', finishMascot, { once: true });
+
+            const playback = video.play();
+            if (playback && typeof playback.catch === 'function') {
+                playback.catch(finishMascot);
+            }
+        });
+    </script>
 
     <script async src="https://assets.calendly.com/assets/external/widget.js"></script>
     <script>
@@ -982,5 +1071,6 @@
         resizeCanvas();
         animateCanvas();
     </script>
+    <script src="chat-widget.js" defer></script>
 </body>
 </html>
