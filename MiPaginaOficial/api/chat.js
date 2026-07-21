@@ -1,4 +1,5 @@
-const MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash';
+const PRIMARY_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash';
+const FALLBACK_MODEL = process.env.GEMINI_FALLBACK_MODEL || 'gemini-3.1-flash-lite';
 const API_KEY = process.env.GEMINI_API_KEY;
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || '';
 
@@ -104,6 +105,88 @@ function normalizeMessages(input) {
         .filter(item => item.text.length > 0);
 }
 
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function isTransientStatus(status) {
+    return status === 0 || status === 408 || status === 429 || status >= 500;
+}
+
+async function callGemini(model, contents, timeoutMs = 5500) {
+    try {
+        const response = await fetch(
+            `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-goog-api-key': API_KEY
+                },
+                body: JSON.stringify({
+                    systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+                    contents,
+                    generationConfig: {
+                        temperature: 0.45,
+                        topP: 0.9,
+                        maxOutputTokens: 1200,
+                        thinkingConfig: { thinkingLevel: 'minimal' }
+                    }
+                }),
+                signal: AbortSignal.timeout(timeoutMs)
+            }
+        );
+
+        const data = await response.json().catch(() => ({}));
+        return { ok: response.ok, status: response.status, data, model };
+    } catch (error) {
+        return { ok: false, status: 0, error, data: {}, model };
+    }
+}
+
+function extractReply(result) {
+    const candidate = result?.data?.candidates?.[0];
+    const finishReason = candidate?.finishReason || 'FINISH_REASON_UNSPECIFIED';
+    const reply = candidate?.content?.parts
+        ?.map(part => typeof part.text === 'string' ? part.text : '')
+        .join('')
+        .trim();
+    return { reply, finishReason };
+}
+
+async function requestWithRecovery(contents) {
+    // Primer intento con el modelo principal.
+    let result = await callGemini(PRIMARY_MODEL, contents);
+    if (result.ok) return result;
+
+    console.error('Gemini API error:', PRIMARY_MODEL, result.status,
+        result?.data?.error?.message || result?.error?.message || result.data);
+
+    // Los errores transitorios se reintentan una vez con una pausa corta.
+    if (isTransientStatus(result.status)) {
+        await wait(450);
+        result = await callGemini(PRIMARY_MODEL, contents);
+        if (result.ok) return result;
+        console.error('Gemini retry error:', PRIMARY_MODEL, result.status,
+            result?.data?.error?.message || result?.error?.message || result.data);
+    }
+
+    // Si el modelo no está disponible o sigue saturado, usa el modelo ligero estable.
+    const canFallback = FALLBACK_MODEL && FALLBACK_MODEL !== PRIMARY_MODEL &&
+        (result.status === 404 || isTransientStatus(result.status));
+
+    if (canFallback) {
+        await wait(350);
+        const fallback = await callGemini(FALLBACK_MODEL, contents);
+        if (fallback.ok) return fallback;
+        console.error('Gemini fallback error:', FALLBACK_MODEL, fallback.status,
+            fallback?.data?.error?.message || fallback?.error?.message || fallback.data);
+        return fallback;
+    }
+
+    return result;
+}
+
 module.exports = async function handler(req, res) {
     if (req.method !== 'POST') {
         res.setHeader('Allow', 'POST');
@@ -139,66 +222,41 @@ module.exports = async function handler(req, res) {
     }));
 
     try {
-        const geminiResponse = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(MODEL)}:generateContent`,
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'x-goog-api-key': API_KEY
-                },
-                body: JSON.stringify({
-                    systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-                    contents,
-                    generationConfig: {
-                        temperature: 0.45,
-                        topP: 0.9,
-                        maxOutputTokens: 1200,
-                        thinkingConfig: {
-                            thinkingLevel: 'minimal'
-                        }
-                    }
-                }),
-                signal: AbortSignal.timeout(18_000)
-            }
-        );
+        const result = await requestWithRecovery(contents);
 
-        const data = await geminiResponse.json().catch(() => ({}));
-        if (!geminiResponse.ok) {
-            console.error('Gemini API error:', geminiResponse.status, data?.error?.message || data);
-            const message = geminiResponse.status === 429
-                ? 'La IA está recibiendo muchas solicitudes. Intenta nuevamente en un momento.'
-                : 'No pude conectar con Gemini en este momento.';
-            return sendJson(res, 502, { error: message });
+        if (!result.ok) {
+            const upstreamMessage = result?.data?.error?.message || result?.error?.message || '';
+            const status = result.status;
+            let publicMessage = 'No pude conectar con Gemini en este momento. Intenta nuevamente en unos segundos.';
+
+            if (status === 429) publicMessage = 'La IA está recibiendo muchas solicitudes. Intenta nuevamente en un momento.';
+            if (status === 400) publicMessage = 'Gemini rechazó la solicitud. Revisa la configuración del modelo.';
+            if (status === 403) publicMessage = 'La clave de Gemini no tiene permisos para responder.';
+            if (status === 404) publicMessage = 'El modelo configurado no está disponible.';
+
+            console.error('Nix final upstream error:', { status, model: result.model, upstreamMessage });
+            return sendJson(res, 502, { error: publicMessage });
         }
 
-        const candidate = data?.candidates?.[0];
-        const finishReason = candidate?.finishReason || 'FINISH_REASON_UNSPECIFIED';
-        const reply = candidate?.content?.parts
-            ?.map(part => typeof part.text === 'string' ? part.text : '')
-            .join('')
-            .trim();
-
+        const { reply, finishReason } = extractReply(result);
         if (!reply) {
-            console.error('Gemini empty response. finishReason:', finishReason);
+            console.error('Gemini empty response:', { model: result.model, finishReason });
             return sendJson(res, 502, { error: 'Gemini no devolvió una respuesta utilizable.' });
         }
 
         if (finishReason === 'MAX_TOKENS') {
-            console.warn('Gemini response reached MAX_TOKENS; returning the available text.');
+            console.warn('Gemini response reached MAX_TOKENS; returning available text.');
         }
 
         return sendJson(res, 200, {
             reply: reply.slice(0, 5000),
-            finishReason
+            finishReason,
+            model: result.model
         });
     } catch (error) {
         console.error('Nix chatbot error:', error);
-        const timeout = error?.name === 'TimeoutError' || error?.name === 'AbortError';
         return sendJson(res, 502, {
-            error: timeout
-                ? 'La respuesta tardó demasiado. Intenta nuevamente.'
-                : 'Ocurrió un error al consultar la IA.'
+            error: 'Ocurrió un error temporal al consultar la IA. Intenta nuevamente.'
         });
     }
 };
