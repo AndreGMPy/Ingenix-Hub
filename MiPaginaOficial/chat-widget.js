@@ -10,16 +10,74 @@
     const sendButton = document.getElementById('nix-chat-send');
     const messagesElement = document.getElementById('nix-chat-messages');
     const quickElement = document.getElementById('nix-chat-quick');
+    const whatsappLink = document.getElementById('nix-chat-whatsapp');
 
-    if (!trigger || !chat || !messagesElement) return;
+    if (!trigger || !chat || !form || !input || !sendButton || !messagesElement) return;
 
+    const STORAGE_KEY = 'ingenix-nix-chat-v1';
     const avatarPath = 'public/mascota-ingenix/mascota-final.webp';
-    let open = false;
-    let messageShown = false;
+    const baseWhatsapp = 'https://wa.me/524451820808';
+    const maxHistory = 12;
 
-    function createMessage(text) {
+    let isOpen = false;
+    let isSending = false;
+    let history = loadHistory();
+
+    function loadHistory() {
+        try {
+            const stored = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
+            if (!Array.isArray(stored)) return [];
+            return stored
+                .filter(item => item && (item.role === 'user' || item.role === 'model') && typeof item.text === 'string')
+                .slice(-maxHistory)
+                .map(item => ({ role: item.role, text: item.text.slice(0, 4000) }));
+        } catch (_) {
+            return [];
+        }
+    }
+
+    function saveHistory() {
+        try {
+            sessionStorage.setItem(STORAGE_KEY, JSON.stringify(history.slice(-maxHistory)));
+        } catch (_) {}
+    }
+
+    function scrollToLatest() {
+        requestAnimationFrame(() => {
+            messagesElement.scrollTop = messagesElement.scrollHeight;
+        });
+    }
+
+    function createMessage(text, role = 'model', options = {}) {
         const wrapper = document.createElement('div');
-        wrapper.className = 'nix-message bot';
+        wrapper.className = `nix-message ${role === 'user' ? 'user' : 'bot'}${options.error ? ' error' : ''}`;
+
+        if (role !== 'user') {
+            const avatar = document.createElement('span');
+            avatar.className = 'nix-message-avatar';
+            avatar.setAttribute('aria-hidden', 'true');
+
+            const image = document.createElement('img');
+            image.src = avatarPath;
+            image.alt = '';
+            avatar.appendChild(image);
+            wrapper.appendChild(avatar);
+        }
+
+        const bubble = document.createElement('div');
+        bubble.className = 'nix-message-bubble';
+        bubble.textContent = text;
+        wrapper.appendChild(bubble);
+
+        messagesElement.appendChild(wrapper);
+        scrollToLatest();
+        return wrapper;
+    }
+
+    function createTypingIndicator() {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'nix-message bot nix-typing';
+        wrapper.setAttribute('aria-label', 'Nix está escribiendo');
 
         const avatar = document.createElement('span');
         avatar.className = 'nix-message-avatar';
@@ -31,51 +89,154 @@
 
         const bubble = document.createElement('div');
         bubble.className = 'nix-message-bubble';
-        bubble.textContent = text;
+        for (let index = 0; index < 3; index += 1) {
+            const dot = document.createElement('span');
+            dot.className = 'nix-typing-dot';
+            bubble.appendChild(dot);
+        }
 
-        wrapper.appendChild(avatar);
-        wrapper.appendChild(bubble);
+        wrapper.append(avatar, bubble);
         messagesElement.appendChild(wrapper);
-        messagesElement.scrollTop = messagesElement.scrollHeight;
+        scrollToLatest();
+        return wrapper;
     }
 
-    function showDevelopmentMessage() {
-        if (messageShown) return;
-        createMessage('¡Hola! Soy Nix 👋 Mi inteligencia artificial todavía está en desarrollo. Muy pronto podré ayudarte directamente desde aquí. Espera nuestras próximas actualizaciones.');
-        messageShown = true;
+    function renderConversation() {
+        messagesElement.replaceChildren();
+
+        if (!history.length) {
+            createMessage('¡Hola! Soy Nix 👋 La IA de Ingenix Hub. Cuéntame qué negocio tienes o qué solución quieres crear y te orientaré para comenzar.');
+            return;
+        }
+
+        history.forEach(message => createMessage(message.text, message.role));
+    }
+
+    function updateWhatsappLink() {
+        if (!whatsappLink) return;
+
+        const recent = history
+            .slice(-6)
+            .map(message => `${message.role === 'user' ? 'Cliente' : 'Nix'}: ${message.text}`)
+            .join('\n');
+
+        const text = recent
+            ? `Hola, quiero continuar mi cotización con Ingenix Hub. Este es el resumen de mi conversación con Nix:\n\n${recent}`
+            : 'Hola, quiero cotizar un proyecto con Ingenix Hub.';
+
+        whatsappLink.href = `${baseWhatsapp}?text=${encodeURIComponent(text.slice(0, 1700))}`;
     }
 
     function setOpen(nextOpen) {
-        open = nextOpen;
-        chat.classList.toggle('is-open', open);
-        backdrop?.classList.toggle('is-open', open);
-        document.body.classList.toggle('nix-chat-open', open);
-        chat.setAttribute('aria-hidden', String(!open));
-        backdrop?.setAttribute('aria-hidden', String(!open));
-        trigger.setAttribute('aria-expanded', String(open));
+        isOpen = nextOpen;
+        chat.classList.toggle('is-open', isOpen);
+        backdrop?.classList.toggle('is-open', isOpen);
+        document.body.classList.toggle('nix-chat-open', isOpen);
+        chat.setAttribute('aria-hidden', String(!isOpen));
+        backdrop?.setAttribute('aria-hidden', String(!isOpen));
+        trigger.setAttribute('aria-expanded', String(isOpen));
 
-        if (open) {
-            showDevelopmentMessage();
-            closeButton?.focus({ preventScroll: true });
+        if (isOpen) {
+            renderConversation();
+            updateWhatsappLink();
+            window.setTimeout(() => input.focus({ preventScroll: true }), 180);
         } else {
             trigger.focus({ preventScroll: true });
         }
     }
 
-    // Modo temporal mientras se termina la integración con Gemini.
-    quickElement?.setAttribute('hidden', '');
-    if (input) {
-        input.disabled = true;
-        input.required = false;
-        input.placeholder = 'IA en desarrollo — disponible próximamente';
+    function setSending(nextSending) {
+        isSending = nextSending;
+        input.disabled = isSending;
+        sendButton.disabled = isSending;
+        quickElement?.querySelectorAll('button').forEach(button => {
+            button.disabled = isSending;
+        });
     }
-    if (sendButton) sendButton.disabled = true;
-    form?.addEventListener('submit', event => event.preventDefault());
 
-    trigger.addEventListener('click', () => setOpen(!open));
+    function resizeInput() {
+        input.style.height = 'auto';
+        input.style.height = `${Math.min(input.scrollHeight, 108)}px`;
+    }
+
+    async function sendMessage(rawText) {
+        const text = String(rawText || '').trim().slice(0, 800);
+        if (!text || isSending) return;
+
+        history.push({ role: 'user', text });
+        history = history.slice(-maxHistory);
+        saveHistory();
+        createMessage(text, 'user');
+        updateWhatsappLink();
+
+        input.value = '';
+        resizeInput();
+        setSending(true);
+        quickElement?.setAttribute('hidden', '');
+
+        const typing = createTypingIndicator();
+
+        try {
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ messages: history }),
+                credentials: 'same-origin'
+            });
+
+            const data = await response.json().catch(() => ({}));
+            typing.remove();
+
+            if (!response.ok || typeof data.reply !== 'string') {
+                throw new Error(data.error || 'No pude obtener una respuesta en este momento.');
+            }
+
+            const reply = data.reply.trim().slice(0, 4000);
+            history.push({ role: 'model', text: reply });
+            history = history.slice(-maxHistory);
+            saveHistory();
+            createMessage(reply, 'model');
+            updateWhatsappLink();
+        } catch (error) {
+            typing.remove();
+            createMessage(
+                error?.message || 'La IA no está disponible en este momento. Puedes continuar por WhatsApp.',
+                'model',
+                { error: true }
+            );
+        } finally {
+            setSending(false);
+            input.focus({ preventScroll: true });
+        }
+    }
+
+    trigger.addEventListener('click', () => setOpen(!isOpen));
     closeButton?.addEventListener('click', () => setOpen(false));
     backdrop?.addEventListener('click', () => setOpen(false));
+
     document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && open) setOpen(false);
+        if (event.key === 'Escape' && isOpen) setOpen(false);
     });
+
+    form.addEventListener('submit', event => {
+        event.preventDefault();
+        sendMessage(input.value);
+    });
+
+    input.addEventListener('input', resizeInput);
+    input.addEventListener('keydown', event => {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            sendMessage(input.value);
+        }
+    });
+
+    quickElement?.addEventListener('click', event => {
+        const button = event.target.closest('[data-nix-prompt]');
+        if (!button || button.disabled) return;
+        sendMessage(button.dataset.nixPrompt || button.textContent);
+    });
+
+    renderConversation();
+    updateWhatsappLink();
 })();

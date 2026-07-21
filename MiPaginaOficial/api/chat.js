@@ -63,12 +63,33 @@ function isRateLimited(ip) {
     return current.count > MAX_REQUESTS;
 }
 
-function parseBody(req) {
+function getAllowedOrigins(req) {
+    const configured = ALLOWED_ORIGIN
+        .split(',')
+        .map(value => value.trim().replace(/\/$/, ''))
+        .filter(Boolean);
+
+    const host = req.headers['x-forwarded-host'] || req.headers.host;
+    const protocol = req.headers['x-forwarded-proto'] || 'https';
+    if (host) configured.push(`${protocol}://${host}`);
+
+    return new Set(configured);
+}
+
+async function readJsonBody(req) {
     if (req.body && typeof req.body === 'object') return req.body;
     if (typeof req.body === 'string') {
         try { return JSON.parse(req.body); } catch (_) { return null; }
     }
-    return null;
+
+    let raw = '';
+    for await (const chunk of req) {
+        raw += chunk;
+        if (raw.length > 20_000) return null;
+    }
+
+    if (!raw) return null;
+    try { return JSON.parse(raw); } catch (_) { return null; }
 }
 
 function normalizeMessages(input) {
@@ -88,11 +109,12 @@ module.exports = async function handler(req, res) {
         return sendJson(res, 405, { error: 'Método no permitido.' });
     }
 
-    if (ALLOWED_ORIGIN && req.headers.origin) {
-        const allowed = ALLOWED_ORIGIN.split(',').map(value => value.trim()).filter(Boolean);
-        if (!allowed.includes(req.headers.origin)) {
-            return sendJson(res, 403, { error: 'Origen no autorizado.' });
-        }
+    const requestOrigin = typeof req.headers.origin === 'string'
+        ? req.headers.origin.replace(/\/$/, '')
+        : '';
+
+    if (requestOrigin && !getAllowedOrigins(req).has(requestOrigin)) {
+        return sendJson(res, 403, { error: 'Origen no autorizado.' });
     }
 
     if (!API_KEY) {
@@ -104,7 +126,7 @@ module.exports = async function handler(req, res) {
         return sendJson(res, 429, { error: 'Has enviado varios mensajes. Espera unos minutos antes de continuar.' });
     }
 
-    const body = parseBody(req);
+    const body = await readJsonBody(req);
     const messages = normalizeMessages(body?.messages);
     if (!messages.length || messages[messages.length - 1].role !== 'user') {
         return sendJson(res, 400, { error: 'Escribe un mensaje válido.' });
@@ -133,7 +155,7 @@ module.exports = async function handler(req, res) {
                         maxOutputTokens: 500
                     }
                 }),
-                signal: AbortSignal.timeout(18000)
+                signal: AbortSignal.timeout(18_000)
             }
         );
 
