@@ -23,6 +23,17 @@
     let isSending = false;
     let history = loadHistory();
 
+    function syncVisualViewportHeight() {
+        const viewportHeight = window.visualViewport?.height || window.innerHeight;
+        document.documentElement.style.setProperty('--nix-visual-viewport-height', `${Math.round(viewportHeight)}px`);
+    }
+
+    syncVisualViewportHeight();
+    window.addEventListener('resize', syncVisualViewportHeight, { passive: true });
+    window.addEventListener('orientationchange', syncVisualViewportHeight, { passive: true });
+    window.visualViewport?.addEventListener('resize', syncVisualViewportHeight, { passive: true });
+    window.visualViewport?.addEventListener('scroll', syncVisualViewportHeight, { passive: true });
+
     function loadHistory() {
         try {
             const stored = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
@@ -137,9 +148,13 @@
         trigger.setAttribute('aria-expanded', String(isOpen));
 
         if (isOpen) {
+            syncVisualViewportHeight();
             renderConversation();
             updateWhatsappLink();
-            window.setTimeout(() => input.focus({ preventScroll: true }), 180);
+            window.setTimeout(() => {
+                syncVisualViewportHeight();
+                input.focus({ preventScroll: true });
+            }, 180);
         } else {
             trigger.focus({ preventScroll: true });
         }
