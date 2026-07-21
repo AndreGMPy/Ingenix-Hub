@@ -3247,88 +3247,33 @@ body.dark-mode .nix-chat-footer small { color: #899ab4; }
 
 
 /* =========================================================
-   MÓVIL ESTÁTICO · Las animaciones se conservan solo en PC
-   Mantiene botones, menú, módulos y chatbot completamente funcionales.
+   MASCOTA ESTÁTICA EN MÓVIL
+   Solo detiene la mascota. El resto del sitio conserva sus animaciones.
    ========================================================= */
 @media (max-width: 820px) {
-    html.mobile-static,
-    html.mobile-static body {
-        scroll-behavior: auto !important;
-    }
-
-    html.mobile-static *,
-    html.mobile-static *::before,
-    html.mobile-static *::after {
+    .mascot-dock.mobile-static .mascot-dock-video,
+    .mascot-dock.mobile-static .mascot-dock-ios {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
         animation: none !important;
-        transition: none !important;
     }
 
-    html.mobile-static .intro-loader {
-        display: none !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-    }
-
-    html.mobile-static [data-reveal] {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-
-    html.mobile-static .cursor-spotlight,
-    html.mobile-static .data-packets,
-    html.mobile-static .phone-data-stream,
-    html.mobile-static .hero-connectors,
-    html.mobile-static .scan-line,
-    html.mobile-static .scan-card::before,
-    html.mobile-static .core-rings,
-    html.mobile-static .lab-orbit,
-    html.mobile-static .lab-code-stream,
-    html.mobile-static .click-ripple {
-        display: none !important;
-    }
-
-    html.mobile-static .phone-parallax-wrap,
-    html.mobile-static .floating-device,
-    html.mobile-static .tilt-card,
-    html.mobile-static .stack-card,
-    html.mobile-static .lab-demo-card,
-    html.mobile-static .carousel-card,
-    html.mobile-static .quote-panel,
-    html.mobile-static .contact-card {
-        transform: none !important;
-    }
-
-    /* La mascota permanece como botón del chat, pero usa una imagen estática. */
-    html.mobile-static .mascot-dock-video,
-    html.mobile-static .mascot-dock-ios {
-        display: none !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-    }
-
-    html.mobile-static .mascot-dock-final {
+    .mascot-dock.mobile-static .mascot-dock-final {
         display: block !important;
         opacity: 1 !important;
         visibility: visible !important;
-        transform: none !important;
-    }
-
-    html.mobile-static .mascot-dock-glow {
-        display: none !important;
-    }
-
-    html.mobile-static .mascot-dock {
-        transform: none !important;
-        filter: drop-shadow(0 10px 18px rgba(15, 23, 42, .14));
-    }
-
-    /* El chat abre de inmediato, sin movimientos, para sentirse más ligero. */
-    html.mobile-static .nix-chat,
-    html.mobile-static .nix-chat-backdrop,
-    html.mobile-static .nix-message,
-    html.mobile-static .nix-typing-dot {
         animation: none !important;
         transition: none !important;
+        transform: none !important;
+    }
+
+    .mascot-dock.mobile-static .mascot-dock-glow {
+        display: none !important;
+        animation: none !important;
+    }
+
+    .mascot-dock.mobile-static {
+        filter: drop-shadow(0 10px 18px rgba(15, 23, 42, .14));
     }
 }
