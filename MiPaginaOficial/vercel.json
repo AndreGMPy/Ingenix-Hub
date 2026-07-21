@@ -1,20 +1,288 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "outputDirectory": ".",
-  "functions": {
-    "api/chat.js": {
-      "maxDuration": 20
-    }
-  },
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, max-age=0"
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Portafolio de Ingenix Hub: páginas web, catálogos digitales, apps web y sistemas para negocios.">
+    <meta name="theme-color" content="#0b1f52">
+    <title>Portafolio | Ingenix Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Saltar al contenido</a>
+    <div class="cursor-spotlight" id="cursor-spotlight" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <div class="top-ribbon">
+            <a href="index.html#quote"><strong>Portafolio:</strong> algunos proyectos públicos y vistas previas autorizadas.</a>
+        </div>
+        <nav class="site-nav" aria-label="Navegación principal">
+            <a href="index.html#hero" class="logo-link" aria-label="Ir al inicio de Ingenix Hub">
+                <img src="logo_no_bg.png" alt="Ingenix Hub" class="logo-img">
+            </a>
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="nav-links" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a class="nav-item" href="index.html#hero">Inicio</a></li>
+                <li><a class="nav-item" href="index.html#services">Servicios</a></li>
+                <li><a class="nav-item" href="index.html#portfolio">Portafolio</a></li>
+                <li><a class="nav-item" href="index.html#process">Proceso</a></li>
+                <li><a class="nav-item" href="index.html#quote">Cotización</a></li>
+                <li><a class="nav-item" href="index.html#contact">Contacto</a></li>
+                <li><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar modo de color"><i class="fas fa-moon" aria-hidden="true"></i></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section class="hero portfolio-hero">
+            <div class="hero-light hero-light-one" aria-hidden="true"></div>
+            <div class="container hero-layout portfolio-hero-layout">
+                <div class="hero-copy" data-reveal>
+                    <span class="section-pill">Portafolio</span>
+                    <h1>Proyectos digitales con diseño, estructura y enfoque comercial.</h1>
+                    <p>Estos proyectos muestran distintos niveles de trabajo: páginas informativas, catálogos, demos comerciales y sistemas privados para control interno.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary magnetic" href="https://wa.me/524451820808?text=Hola%2C%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20un%20proyecto%20web." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i>Cotizar algo similar</a>
+                        <a class="btn btn-ghost magnetic" href="index.html"><i class="fas fa-arrow-left" aria-hidden="true"></i>Volver al inicio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section portfolio-list-section">
+            <div class="container portfolio-grid-page">
+                <article class="portfolio-page-card tilt-card scan-card" data-reveal>
+                    <div class="browser-mockup"><div class="browser-bar"><span></span><span></span><span></span><small>textibajio.com</small></div><img src="textibajio.png" alt="TextiBajío"></div>
+                    <div class="project-info"><small>Directorio y plataforma web</small><h3>TextiBajío</h3><p>Plataforma para digitalizar negocios textiles con perfiles, catálogo y contacto directo.</p><div class="tech-tags"><span>Firebase</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div><a href="https://textibajio.com" target="_blank" rel="noopener noreferrer">Visitar sitio <i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                </article>
+
+                <article class="portfolio-page-card tilt-card scan-card" data-reveal>
+                    <div class="browser-mockup"><div class="browser-bar"><span></span><span></span><span></span><small>gamastudiomx.com</small></div><img src="gama-studio.png" alt="Gama Studio MX"></div>
+                    <div class="project-info"><small>Sitio web corporativo</small><h3>Gama Studio MX</h3><p>Sitio profesional para presentar servicios, fortalecer marca y captar clientes con claridad.</p><div class="tech-tags"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span></div><a href="https://gamastudiomx.com" target="_blank" rel="noopener noreferrer">Visitar sitio <i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                </article>
+
+                <article class="portfolio-page-card tilt-card scan-card" data-reveal>
+                    <div class="browser-mockup"><div class="browser-bar"><span></span><span></span><span></span><small>cuellos-textiles-goar.vercel.app</small></div><img src="cuellos-textiles-goar.png" alt="Cuellos Textiles Goar"></div>
+                    <div class="project-info"><small>Catálogo y página web</small><h3>Cuellos Textiles Goar</h3><p>Página enfocada en mostrar productos textiles y facilitar el contacto comercial.</p><div class="tech-tags"><span>HTML</span><span>CSS</span><span>Responsive</span><span>Vercel</span></div><a href="https://cuellos-textiles-goar.vercel.app" target="_blank" rel="noopener noreferrer">Visitar sitio <i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                </article>
+
+                <article class="portfolio-page-card tilt-card scan-card" data-reveal>
+                    <div class="browser-mockup"><div class="browser-bar"><span></span><span></span><span></span><small>ejemplo-tienda-digital.vercel.app</small></div><img src="demo-tienda-online.png" alt="Demo de ventas online"></div>
+                    <div class="project-info"><small>Demo comercial</small><h3>Demo de Ventas Online</h3><p>Demo para mostrar catálogo, experiencia de compra y flujo de contacto comercial.</p><div class="tech-tags"><span>Node.js</span><span>JavaScript</span><span>HTML/CSS</span><span>Backend</span></div><a href="https://ejemplo-tienda-digital.vercel.app" target="_blank" rel="noopener noreferrer">Visitar sitio <i class="fas fa-arrow-up-right-from-square"></i></a></div>
+                </article>
+
+                <article class="portfolio-page-card tilt-card scan-card" data-reveal>
+                    <div class="browser-mockup"><div class="browser-bar"><span></span><span></span><span></span><small>app privada / dashboard</small></div><img src="damaris-dashboard.png" alt="Sistema de control de ventas"></div>
+                    <div class="project-info"><small>App web privada</small><h3>Sistema de Control de Ventas</h3><p>Dashboard privado para ventas, gastos, ganancias, inventario y control del negocio.</p><div class="tech-tags"><span>Next.js</span><span>React</span><span>PWA</span><span>Dashboard</span></div><span class="private-label">Vista previa privada</span></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <div class="container quote-panel" data-reveal>
+                <div class="quote-copy">
+                    <span class="section-pill">Cotización</span>
+                    <h2>¿Quieres algo parecido para tu negocio?</h2>
+                    <p>Mándame tu idea y te digo qué tipo de proyecto te conviene: web, catálogo, panel, app o sistema a medida.</p>
+                </div>
+                <div class="quote-actions">
+                    <a class="btn btn-primary magnetic" href="https://wa.me/524451820808?text=Hola%2C%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20un%20proyecto." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Cotizar por WhatsApp</a>
+                    <a class="btn btn-ghost magnetic" href="index.html#contact">Ver contacto</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© 2026 Ingenix Hub.</p>
+            <div class="footer-actions">
+                <nav class="footer-socials" aria-label="Redes sociales de Ingenix Hub">
+                    <a href="https://www.instagram.com/ingenixhub/" target="_blank" rel="noopener noreferrer" aria-label="Seguir a Ingenix Hub en Instagram" title="Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://www.facebook.com/share/18E1AF8CoZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Visitar Ingenix Hub en Facebook" title="Facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        <span>Facebook</span>
+                    </a>
+                </nav>
+                <a class="footer-top-link" href="index.html">Inicio</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mascota Ingenix: animación PixVerse con fondo procesado, se reproduce una sola vez -->
+    <button class="mascot-dock" id="nix-chat-trigger" type="button" aria-label="Abrir chat con Nix" aria-controls="nix-chat" aria-expanded="false">
+        <div class="mascot-dock-glow"></div>
+        <img
+            class="mascot-dock-ios"
+            src="public/mascota-ingenix/mascota-ingenix-ios.webp"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+        >
+        <video
+            class="mascot-dock-video"
+            autoplay
+            muted
+            playsinline
+            preload="auto"
+            poster="public/mascota-ingenix/mascota-poster.webp"
+            disablepictureinpicture
+        >
+            <source src="public/mascota-ingenix/mascota-ingenix.webm" type="video/webm; codecs=vp9">
+        </video>
+        <img
+            class="mascot-dock-final"
+            src="public/mascota-ingenix/mascota-final.webp"
+            alt=""
+            decoding="async"
+        >
+        <div class="mascot-dock-label"><span></span>IA en desarrollo</div>
+    </button>
+
+    <!-- Nix: vista previa del chatbot mientras la integración de IA está en desarrollo -->
+    <div class="nix-chat-backdrop" id="nix-chat-backdrop" aria-hidden="true"></div>
+    <aside class="nix-chat" id="nix-chat" role="dialog" aria-modal="false" aria-labelledby="nix-chat-title" aria-hidden="true">
+        <header class="nix-chat-header">
+            <div class="nix-chat-identity">
+                <span class="nix-avatar" aria-hidden="true">
+                    <img src="public/mascota-ingenix/mascota-final.webp" alt="">
+                </span>
+                <span>
+                    <strong id="nix-chat-title">Nix</strong>
+                    <small><i></i> IA de Ingenix Hub · Próximamente</small>
+                </span>
+            </div>
+            <button class="nix-chat-close" id="nix-chat-close" type="button" aria-label="Cerrar chat">
+                <i class="fas fa-xmark" aria-hidden="true"></i>
+            </button>
+        </header>
+
+        <div class="nix-chat-intro">
+            Puedo orientarte sobre páginas web, catálogos, apps, paneles y automatizaciones con IA.
+        </div>
+
+        <div class="nix-chat-messages" id="nix-chat-messages" aria-live="polite" aria-label="Conversación con Nix"></div>
+
+        <div class="nix-chat-quick" id="nix-chat-quick" aria-label="Preguntas rápidas">
+            <button type="button" data-nix-prompt="Quiero una página web para mi negocio">Página web</button>
+            <button type="button" data-nix-prompt="Necesito una app o sistema web">App o sistema</button>
+            <button type="button" data-nix-prompt="Quiero automatizar un proceso con inteligencia artificial">Automatización IA</button>
+            <button type="button" data-nix-prompt="Ayúdame a cotizar mi proyecto">Cotizar proyecto</button>
+        </div>
+
+        <form class="nix-chat-form" id="nix-chat-form">
+            <label class="sr-only" for="nix-chat-input">Escribe tu mensaje</label>
+            <textarea id="nix-chat-input" name="message" rows="1" maxlength="800" placeholder="Cuéntame qué quieres crear…" autocomplete="off" required></textarea>
+            <button id="nix-chat-send" type="submit" aria-label="Enviar mensaje">
+                <i class="fas fa-arrow-up" aria-hidden="true"></i>
+            </button>
+        </form>
+
+        <footer class="nix-chat-footer">
+            <a id="nix-chat-whatsapp" href="https://wa.me/524451820808?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20con%20Ingenix%20Hub." target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                Continuar por WhatsApp
+            </a>
+            <small>La inteligencia artificial de Nix estará disponible próximamente.</small>
+        </footer>
+    </aside>
+
+
+    <a class="whatsapp-float" href="https://wa.me/524451820808?text=Hola%2C%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20un%20proyecto." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+
+    <script>
+        document.querySelectorAll('.mascot-dock').forEach((dock) => {
+            const video = dock.querySelector('.mascot-dock-video');
+            const iosAnimation = dock.querySelector('.mascot-dock-ios');
+            const userAgent = navigator.userAgent || '';
+            const isIOS = /iPad|iPhone|iPod/i.test(userAgent) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+            const isSafari = /Safari/i.test(userAgent) &&
+                !/Chrome|Chromium|CriOS|FxiOS|EdgiOS|OPiOS|Android/i.test(userAgent);
+            const useAppleAnimation = isIOS || isSafari;
+            let finished = false;
+
+            const finishMascot = () => {
+                if (finished) return;
+                finished = true;
+                dock.classList.add('is-finished');
+            };
+
+            if (useAppleAnimation && iosAnimation) {
+                dock.classList.add('use-ios-animation');
+                iosAnimation.addEventListener('error', finishMascot, { once: true });
+                window.setTimeout(finishMascot, 7600);
+                return;
+            }
+
+            if (!video) {
+                finishMascot();
+                return;
+            }
+
+            video.addEventListener('ended', finishMascot, { once: true });
+            video.addEventListener('error', finishMascot, { once: true });
+
+            const playback = video.play();
+            if (playback && typeof playback.catch === 'function') {
+                playback.catch(finishMascot);
+            }
+        });
+    </script>
+
+<script>
+        const body = document.body;
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        const themeToggle = document.getElementById('theme-toggle');
+        const progressBar = document.getElementById('scroll-progress');
+        function setTheme(theme){ const dark = theme === 'dark'; body.classList.toggle('dark-mode', dark); themeToggle.querySelector('i').className = dark ? 'fas fa-sun' : 'fas fa-moon'; try { localStorage.setItem('ingenix-theme', theme); } catch (_) {} }
+        let savedTheme = 'light'; try { savedTheme = localStorage.getItem('ingenix-theme') || 'light'; } catch (_) {}
+        setTheme(savedTheme);
+        themeToggle.addEventListener('click', () => setTheme(body.classList.contains('dark-mode') ? 'light' : 'dark'));
+        function closeMenu(){ navLinks.classList.remove('open'); menuToggle.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); }
+        menuToggle.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); menuToggle.classList.toggle('open', open); menuToggle.setAttribute('aria-expanded', String(open)); });
+        document.querySelectorAll('.nav-item').forEach(link => link.addEventListener('click', closeMenu));
+        window.addEventListener('scroll', () => { const total = document.documentElement.scrollHeight - window.innerHeight; progressBar.style.width = (total > 0 ? window.scrollY / total * 100 : 0) + '%'; }, { passive: true });
+        const items = document.querySelectorAll('[data-reveal]');
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if ('IntersectionObserver' in window && !reduce) { const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: .15 }); items.forEach(i => obs.observe(i)); } else { items.forEach(i => i.classList.add('visible')); }
+
+        const spotlight = document.getElementById('cursor-spotlight');
+        if (spotlight && window.matchMedia('(pointer: fine)').matches && !reduce) {
+            window.addEventListener('pointermove', event => { spotlight.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`; }, { passive: true });
         }
-      ]
-    }
-  ]
-}
+        if (!reduce && window.matchMedia('(pointer: fine)').matches) {
+            document.querySelectorAll('.tilt-card').forEach(card => {
+                card.addEventListener('pointermove', event => {
+                    const rect = card.getBoundingClientRect();
+                    const x = event.clientX - rect.left; const y = event.clientY - rect.top;
+                    card.style.setProperty('--rx', `${(-((y - rect.height / 2) / rect.height) * 5).toFixed(2)}deg`);
+                    card.style.setProperty('--ry', `${(((x - rect.width / 2) / rect.width) * 5).toFixed(2)}deg`);
+                    card.style.setProperty('--mx', x + 'px'); card.style.setProperty('--my', y + 'px');
+                });
+                card.addEventListener('pointerleave', () => { card.style.setProperty('--rx','0deg'); card.style.setProperty('--ry','0deg'); });
+            });
+            document.querySelectorAll('.btn').forEach(button => {
+                button.addEventListener('pointermove', event => {
+                    const rect = button.getBoundingClientRect();
+                    button.style.setProperty('--magnetic-x', `${((event.clientX - rect.left - rect.width/2)*.12).toFixed(2)}px`);
+                    button.style.setProperty('--magnetic-y', `${((event.clientY - rect.top - rect.height/2)*.16).toFixed(2)}px`);
+                });
+                button.addEventListener('pointerleave', () => { button.style.setProperty('--magnetic-x','0px'); button.style.setProperty('--magnetic-y','0px'); });
+            });
+        }
+    </script>
+    <script src="chat-widget.js" defer></script>
+</body>
+</html>
