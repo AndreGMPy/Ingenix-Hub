@@ -7,6 +7,15 @@
     <meta name="theme-color" content="#0b1f52">
     <title>Ingenix Hub | Páginas web, catálogos y apps para negocios</title>
 
+    <script>
+        // En teléfonos se carga una experiencia estática para mejorar rendimiento y claridad.
+        (() => {
+            if (window.matchMedia('(max-width: 820px)').matches) {
+                document.documentElement.classList.add('mobile-static');
+            }
+        })();
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -574,21 +583,20 @@
         <div class="mascot-dock-glow"></div>
         <img
             class="mascot-dock-ios"
-            src="public/mascota-ingenix/mascota-ingenix-ios.webp"
+            data-src="public/mascota-ingenix/mascota-ingenix-ios.webp"
             alt=""
             aria-hidden="true"
             decoding="async"
         >
         <video
             class="mascot-dock-video"
-            autoplay
             muted
             playsinline
-            preload="auto"
-            poster="public/mascota-ingenix/mascota-poster.webp"
+            preload="none"
+            data-poster="public/mascota-ingenix/mascota-poster.webp"
             disablepictureinpicture
         >
-            <source src="public/mascota-ingenix/mascota-ingenix.webm" type="video/webm; codecs=vp9">
+            <source data-src="public/mascota-ingenix/mascota-ingenix.webm" type="video/webm; codecs=vp9">
         </video>
         <img
             class="mascot-dock-final"
@@ -656,6 +664,7 @@
     <script>
         document.querySelectorAll('.mascot-dock').forEach((dock) => {
             const video = dock.querySelector('.mascot-dock-video');
+            const videoSource = video?.querySelector('source[data-src]');
             const iosAnimation = dock.querySelector('.mascot-dock-ios');
             const userAgent = navigator.userAgent || '';
             const isIOS = /iPad|iPhone|iPod/i.test(userAgent) ||
@@ -663,6 +672,8 @@
             const isSafari = /Safari/i.test(userAgent) &&
                 !/Chrome|Chromium|CriOS|FxiOS|EdgiOS|OPiOS|Android/i.test(userAgent);
             const useAppleAnimation = isIOS || isSafari;
+            const mobileStatic = document.documentElement.classList.contains('mobile-static') ||
+                window.matchMedia('(max-width: 820px)').matches;
             let finished = false;
 
             const finishMascot = () => {
@@ -671,8 +682,17 @@
                 dock.classList.add('is-finished');
             };
 
+            // En móvil se muestra la imagen final estática. La mascota sigue siendo clicable.
+            if (mobileStatic) {
+                dock.classList.add('mobile-static');
+                if (video) video.pause();
+                finishMascot();
+                return;
+            }
+
             if (useAppleAnimation && iosAnimation) {
                 dock.classList.add('use-ios-animation');
+                if (iosAnimation.dataset.src) iosAnimation.src = iosAnimation.dataset.src;
                 iosAnimation.addEventListener('error', finishMascot, { once: true });
                 window.setTimeout(finishMascot, 7600);
                 return;
@@ -685,6 +705,10 @@
 
             video.addEventListener('ended', finishMascot, { once: true });
             video.addEventListener('error', finishMascot, { once: true });
+            if (videoSource?.dataset.src) videoSource.src = videoSource.dataset.src;
+            if (video.dataset.poster) video.poster = video.dataset.poster;
+            video.preload = 'auto';
+            video.load();
 
             const playback = video.play();
             if (playback && typeof playback.catch === 'function') {
@@ -701,6 +725,9 @@
         const themeToggle = document.getElementById('theme-toggle');
         const progressBar = document.getElementById('scroll-progress');
         const intro = document.getElementById('intro-loader');
+        const mobileStaticExperience = document.documentElement.classList.contains('mobile-static') ||
+            window.matchMedia('(max-width: 820px)').matches;
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         const bootLine = document.getElementById('boot-line');
         const bootPercent = document.getElementById('boot-percent');
@@ -736,7 +763,7 @@
 
         let introSeen = false;
         try { introSeen = sessionStorage.getItem('ingenix-intro-seen') === '1'; } catch (_) {}
-        if (introSeen || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        if (introSeen || reducedMotion || mobileStaticExperience) {
             intro?.classList.add('skip-animation');
             window.setTimeout(closeIntro, 80);
         } else {
@@ -780,8 +807,7 @@
         updateProgress();
 
         const revealItems = document.querySelectorAll('[data-reveal]');
-        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if ('IntersectionObserver' in window && !reducedMotion) {
+        if ('IntersectionObserver' in window && !reducedMotion && !mobileStaticExperience) {
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -919,10 +945,12 @@
             if (systemMetrics) systemMetrics.innerHTML = data.metrics.map(item => `<span>${item}</span>`).join('');
             if (systemLog) systemLog.innerHTML = systemLogs[key];
             if (systemMeter) systemMeter.style.width = meterValues[key] + '%';
-            document.getElementById('system-detail')?.animate([
-                { opacity: .35, filter: 'blur(3px)' },
-                { opacity: 1, filter: 'blur(0)' }
-            ], { duration: 260, easing: 'cubic-bezier(.2,.8,.2,1)' });
+            if (!mobileStaticExperience && !reducedMotion) {
+                document.getElementById('system-detail')?.animate([
+                    { opacity: .35, filter: 'blur(3px)' },
+                    { opacity: 1, filter: 'blur(0)' }
+                ], { duration: 260, easing: 'cubic-bezier(.2,.8,.2,1)' });
+            }
         }));
 
         // Spotlight del cursor, solo en escritorio
@@ -933,18 +961,20 @@
             }, { passive: true });
         }
 
-        // Ripple de ingeniería en botones
-        document.querySelectorAll('.btn, .system-node').forEach(button => {
-            button.addEventListener('pointerdown', event => {
-                const rect = button.getBoundingClientRect();
-                const ripple = document.createElement('span');
-                ripple.className = 'click-ripple';
-                ripple.style.left = `${event.clientX - rect.left}px`;
-                ripple.style.top = `${event.clientY - rect.top}px`;
-                button.appendChild(ripple);
-                ripple.addEventListener('animationend', () => ripple.remove());
+        // Ripple de ingeniería solo en escritorio.
+        if (!mobileStaticExperience && !reducedMotion) {
+            document.querySelectorAll('.btn, .system-node').forEach(button => {
+                button.addEventListener('pointerdown', event => {
+                    const rect = button.getBoundingClientRect();
+                    const ripple = document.createElement('span');
+                    ripple.className = 'click-ripple';
+                    ripple.style.left = `${event.clientX - rect.left}px`;
+                    ripple.style.top = `${event.clientY - rect.top}px`;
+                    button.appendChild(ripple);
+                    ripple.addEventListener('animationend', () => ripple.remove());
+                });
             });
-        });
+        }
 
 
         // --- Vista previa interactiva dentro del teléfono ---
@@ -1103,7 +1133,7 @@
         const saveData = Boolean(navigator.connection && navigator.connection.saveData);
         const lowPowerDevice = Boolean(navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
         function animateCanvas() {
-            if (!canvas || !ctx || reducedMotion || saveData || lowPowerDevice) return;
+            if (!canvas || !ctx || reducedMotion || mobileStaticExperience || saveData || lowPowerDevice) return;
             ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
             const isDark = body.classList.contains('dark-mode');
             ctx.fillStyle = isDark ? 'rgba(96,165,250,.38)' : 'rgba(29,78,216,.28)';
